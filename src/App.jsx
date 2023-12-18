@@ -11,10 +11,10 @@ function App() {
       <header>
         <Nav>
           <Ul>
-            <LiNavLink go={{where: "/", text: "Home"}}/>
+            <LiNavLink go={{where: "/", text: "Logo"}}/>
           </Ul>
           <Ul>
-            <LiNavLink go={{where: "/", text: "Logo"}}/>
+            <LiNavLink go={{where: "/", text: "Home"}}/>
           </Ul>
         </Nav>
       </header>
