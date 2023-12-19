@@ -3,7 +3,7 @@ export default function ReEnter() {
         <>
             <div>
                 <label htmlFor="re-enter">Re-enter password</label>
-                <input type="password" name="re-enter" id="re-enter" />
+                <input type="password" name="reEnter" id="reEnter" />
             </div>
         </>
     );
