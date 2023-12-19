@@ -1,26 +1,26 @@
-import { Route, Routes } from 'react-router-dom';
+import { NavLink, Route, Routes } from 'react-router-dom';
 import './App.css'
-import Nav from './components/Nav';
-import Ul from './components/Ul';
 import Home from './pages/Home';
-import LiNavLink from './components/LiNavLink';
+import Register from './pages/Register';
 
 function App() {
   return (
     <>
       <header>
-        <Nav>
-          <Ul>
-            <LiNavLink go={{where: "/", text: "Logo"}}/>
-          </Ul>
-          <Ul>
-            <LiNavLink go={{where: "/", text: "Home"}}/>
-          </Ul>
-        </Nav>
+        <nav>
+          <ul>
+            <li><NavLink to="/">Logo</NavLink></li>
+          </ul>
+          <ul>
+            <li><NavLink to="/">Home</NavLink></li>
+            <li><NavLink to="/register">Register</NavLink></li>
+          </ul>
+        </nav>
       </header>
       <main>
         <Routes>
           <Route path="/" element={<Home/>}/>
+          <Route path="/register" element={<Register/>}/>
         </Routes>
       </main>
     </>
