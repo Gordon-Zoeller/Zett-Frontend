@@ -8,8 +8,11 @@ import Profile from './pages/Profile';
 import Register from './pages/Register';
 
 function App() {
-  const {user} = useContext(Context);
-  const logout = () => sessionStorage.removeItem("token");
+  const {user, setUser} = useContext(Context);
+  const logout = () => {
+    setUser(null);
+    sessionStorage.removeItem("token");
+  };
   return (
     <>
       <header>
