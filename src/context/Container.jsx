@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Context } from "./Context";
 
 export default function Container({children}) {
-    const [user, setUser] = useState({});
+    const [user, setUser] = useState(null);
     useEffect(() => {
         const token = sessionStorage.getItem("token");
         if(token) {
