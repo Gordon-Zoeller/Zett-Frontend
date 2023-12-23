@@ -5,7 +5,7 @@ export default function Profile() {
     const {user} = useContext(Context);
     return (
         <>
-            <h2>{user.firstName}</h2>
+            <h2>{user?.firstName}</h2>
         </>
     );
 };
