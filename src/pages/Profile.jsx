@@ -27,7 +27,7 @@ export default function Profile() {
                 </div>
                 <div>
                     <label htmlFor="price">Price</label>
-                    <input type="number" name="price" id="price" />
+                    <input type="number" step="any" name="price" id="price" />
                 </div>
                 <div>
                     <label htmlFor="isbn">ISBN</label>
