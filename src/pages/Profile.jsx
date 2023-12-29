@@ -7,10 +7,28 @@ import Upload from "../components/Upload";
 
 export default function Profile() {
     const {user} = useContext(Context);
+    async function uploadBook(e) {
+        e.preventDefault();
+        try {
+            const book = new FormData(e.target);
+            const token = sessionStorage.getItem("token");
+            if(token) {
+                const response = await fetch(`${import.meta.env.VITE_UPLOAD_BOOK}`, {method: "POST", headers: {token: token}, body: book});
+                if(response.ok) {
+                    const data = await response.json();
+                    if(data.success) {
+                        console.log(data.message);
+                    };
+                };
+            };
+        } catch (error) {
+            //
+        };
+    };
     return (
         <>
             <h2>{user?.firstName}</h2>
-            <form>
+            <form onSubmit={uploadBook}>
                 <div>
                     <label htmlFor="title">Title</label>
                     <input type="text" name="title" id="title" />
