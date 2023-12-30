@@ -3,6 +3,7 @@ import { NavLink, Route, Routes } from 'react-router-dom';
 import './App.css'
 import { Context } from './context/Context';
 import Books from './pages/Books';
+import Genre from './pages/Genre';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Profile from './pages/Profile';
@@ -42,7 +43,9 @@ function App() {
       <main key="main">
         <Routes>
           <Route path="/" element={<Home/>}/>
-          <Route path="/books" element={<Books/>}/>
+          <Route path="/books" element={<Books/>}>
+            <Route path=":genre" element={<Genre/>}/>
+          </Route>
           <Route path="/register" element={<Register/>}/>
           <Route path="/login" element={<Login/>}/>
           <Route path="/profile" element={<Profile/>}/>
