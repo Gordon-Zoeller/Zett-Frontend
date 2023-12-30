@@ -44,6 +44,14 @@ export default function Profile() {
                     <input type="text" name="publisher" id="publisher" />
                 </div>
                 <div>
+                    <label htmlFor="genre">Genre</label>
+                    <input type="text" name="genre" id="genre" />
+                </div>
+                <div>
+                    <label htmlFor="description">Description</label>
+                    <textarea name="description" id="description" cols="30" rows="10"></textarea>
+                </div>
+                <div>
                     <label htmlFor="price">Price</label>
                     <input type="number" step="any" name="price" id="price" />
                 </div>
