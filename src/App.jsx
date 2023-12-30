@@ -16,7 +16,7 @@ function App() {
   };
   return (
     <>
-      <header>
+      <header key="header">
         <nav>
           <ul>
             <li><NavLink to="/">Logo</NavLink></li>
@@ -39,7 +39,7 @@ function App() {
           </ul>
         </nav>
       </header>
-      <main>
+      <main key="main">
         <Routes>
           <Route path="/" element={<Home/>}/>
           <Route path="/books" element={<Books/>}/>
