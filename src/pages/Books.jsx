@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { NavLink, Outlet } from "react-router-dom";
 
 export default function Books() {
     const [genres, setGenres] = useState([]);
@@ -27,12 +28,13 @@ export default function Books() {
                     genres.map(genre => {
                         return (
                             <>
-                                <h3 key={genre._id}>{genre.genre}</h3>
+                                <h3 key={genre._id}><NavLink to={`/books/${genre.genre}`} state={genre.genre}>{genre.genre}</NavLink></h3>
                             </>
                         );
                     })
                 }
             </div>
+            <Outlet/>
         </>
     );
 };
