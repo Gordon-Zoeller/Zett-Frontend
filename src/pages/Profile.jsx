@@ -28,40 +28,44 @@ export default function Profile() {
     return (
         <>
             <h2>{user?.firstName}</h2>
-            <form onSubmit={uploadBook}>
-                <div>
-                    <label htmlFor="title">Title</label>
-                    <input type="text" name="title" id="title" />
-                </div>
-                <FirstName/>
-                <LastName/>
-                <div>
-                    <label htmlFor="year">Year</label>
-                    <input type="number" name="year" id="year" />
-                </div>
-                <div>
-                    <label htmlFor="publisher">Publisher</label>
-                    <input type="text" name="publisher" id="publisher" />
-                </div>
-                <div>
-                    <label htmlFor="genre">Genre</label>
-                    <input type="text" name="genre" id="genre" />
-                </div>
-                <div>
-                    <label htmlFor="description">Description</label>
-                    <textarea name="description" id="description" cols="30" rows="10"></textarea>
-                </div>
-                <div>
-                    <label htmlFor="price">Price</label>
-                    <input type="number" step="any" name="price" id="price" />
-                </div>
-                <div>
-                    <label htmlFor="isbn">ISBN</label>
-                    <input type="text" name="isbn" id="isbn" />
-                </div>
-                <Image/>
-                <Upload/>
-            </form>
+            {
+                user?.role === "admin"
+                &&
+                <form onSubmit={uploadBook}>
+                    <div>
+                        <label htmlFor="title">Title</label>
+                        <input type="text" name="title" id="title" />
+                    </div>
+                    <FirstName/>
+                    <LastName/>
+                    <div>
+                        <label htmlFor="year">Year</label>
+                        <input type="number" name="year" id="year" />
+                    </div>
+                    <div>
+                        <label htmlFor="publisher">Publisher</label>
+                        <input type="text" name="publisher" id="publisher" />
+                    </div>
+                    <div>
+                        <label htmlFor="genre">Genre</label>
+                        <input type="text" name="genre" id="genre" />
+                    </div>
+                    <div>
+                        <label htmlFor="description">Description</label>
+                        <textarea name="description" id="description" cols="30" rows="10"></textarea>
+                    </div>
+                    <div>
+                        <label htmlFor="price">Price</label>
+                        <input type="number" step="any" name="price" id="price" />
+                    </div>
+                    <div>
+                        <label htmlFor="isbn">ISBN</label>
+                        <input type="text" name="isbn" id="isbn" />
+                    </div>
+                    <Image/>
+                    <Upload/>
+                </form>
+            }
         </>
     );
 };
