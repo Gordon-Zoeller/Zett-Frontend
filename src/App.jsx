@@ -2,6 +2,7 @@ import { useContext } from 'react';
 import { NavLink, Route, Routes } from 'react-router-dom';
 import './App.css'
 import { Context } from './context/Context';
+import Books from './pages/Books';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Profile from './pages/Profile';
@@ -22,6 +23,7 @@ function App() {
           </ul>
           <ul>
             <li><NavLink to="/">Home</NavLink></li>
+            <li><NavLink to="/books">Books</NavLink></li>
             {
               !user ?
                 <>
@@ -40,6 +42,7 @@ function App() {
       <main>
         <Routes>
           <Route path="/" element={<Home/>}/>
+          <Route path="/books" element={<Books/>}/>
           <Route path="/register" element={<Register/>}/>
           <Route path="/login" element={<Login/>}/>
           <Route path="/profile" element={<Profile/>}/>
