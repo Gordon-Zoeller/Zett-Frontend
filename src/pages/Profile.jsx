@@ -1,7 +1,6 @@
 import { useContext } from "react";
 import { Context } from "../context/Context";
-import FirstName from "../components/FirstName";
-import LastName from "../components/LastName";
+import Name from "../components/Name";
 import Image from "../components/Image";
 import Upload from "../components/Upload";
 
@@ -37,8 +36,7 @@ export default function Profile() {
                             <label htmlFor="title">Title</label>
                             <input type="text" name="title" id="title" />
                         </div>
-                        <FirstName/>
-                        <LastName/>
+                        <Name/>
                         <div>
                             <label htmlFor="year">Year</label>
                             <input type="number" name="year" id="year" />
