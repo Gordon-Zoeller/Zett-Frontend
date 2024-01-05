@@ -10,7 +10,6 @@ export default function Books() {
                 if(response.ok) {
                     const data = await response.json();
                     if(data.success) {
-                        console.log(data)
                         setGenres(data.data);
                     };
                 };
