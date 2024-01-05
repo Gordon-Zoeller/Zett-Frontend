@@ -1,8 +1,7 @@
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import Continue from "../components/Continue";
-import Email from "../components/Email";
-import Password from "../components/Password";
+import LoginInformation from "../components/LoginInformation";
 import { Context } from "../context/Context";
 
 export default function Login() {
@@ -34,8 +33,7 @@ export default function Login() {
     return (
         <>
             <form onSubmit={login}>
-                <Email/>
-                <Password/>
+                <LoginInformation/>
                 <Continue/>
             </form>
         </>
