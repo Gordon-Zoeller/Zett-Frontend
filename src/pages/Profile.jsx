@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { Context } from "../context/Context";
-import Name from "../components/Name";
+import CombinedName from "../components/CombinedName";
 import Image from "../components/Image";
 import Upload from "../components/Upload";
 
@@ -36,7 +36,7 @@ export default function Profile() {
                             <label htmlFor="title">Title</label>
                             <input type="text" name="title" id="title" />
                         </div>
-                        <Name/>
+                        <CombinedName/>
                         <div>
                             <label htmlFor="year">Year</label>
                             <input type="number" name="year" id="year" />
