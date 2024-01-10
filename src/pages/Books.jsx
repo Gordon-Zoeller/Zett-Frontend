@@ -22,17 +22,17 @@ export default function Books() {
     return (
         <>
             <h2>Books</h2>
-            <div>
+            <nav>
                 {
                     genres.map(genre => {
                         return (
                             <>
-                                <h3 key={genre._id}><NavLink to={`/books/${genre.genre}`} state={genre.genre}>{genre.genre}</NavLink></h3>
+                                <h3 key={genre._id}><NavLink to={`/books/genre/${genre.genre}`} state={genre.genre}>{genre.genre}</NavLink></h3>
                             </>
                         );
                     })
                 }
-            </div>
+            </nav>
             <Outlet/>
         </>
     );
