@@ -44,7 +44,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home/>}/>
           <Route path="/books" element={<Books/>}>
-            <Route path=":genre" element={<Genre/>}/>
+            <Route path="/books/genre/:genre" element={<Genre/>}/>
           </Route>
           <Route path="/register" element={<Register/>}/>
           <Route path="/login" element={<Login/>}/>
