@@ -1,7 +1,7 @@
 export default function Author(props) {
     return (
         <>
-            <h3>{props.author.firstName} {props.author.lastName}</h3>
+            <h3>{props.author}</h3>
         </>
     );
 };
