@@ -25,9 +25,10 @@ export default function Books() {
             <nav>
                 {
                     genres.map(genre => {
+                        const underScore = genre.genre.replaceAll(" ", "_");
                         return (
                             <>
-                                <h3 key={genre._id}><NavLink to={`/books/genre/${genre.genre}`} state={genre.genre}>{genre.genre}</NavLink></h3>
+                                <h3 key={genre._id}><NavLink to={`/books/genre/${underScore}`} state={genre.genre}>{genre.genre}</NavLink></h3>
                             </>
                         );
                     })
