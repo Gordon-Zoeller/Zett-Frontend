@@ -23,7 +23,7 @@ export default function Genre() {
     }, [state]);
     return (
         <>
-            <BooksContainer> //component reusable in SearchResult
+            <BooksContainer>
                 {
                     books.map(book => {
                         return (
