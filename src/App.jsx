@@ -54,6 +54,9 @@ function App() {
           </Routes>
         </BooksContainer>
       </main>
+      <footer>
+        <p>&copy; {new Date().getFullYear()} Zett</p>
+      </footer>
     </>
   );
 };
