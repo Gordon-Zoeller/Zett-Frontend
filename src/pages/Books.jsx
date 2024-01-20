@@ -1,8 +1,10 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import { NavLink, Outlet } from "react-router-dom";
+import { Context } from "../context/Context";
+import BooksContainer from "../context/BooksContainer";
 
 export default function Books() {
-    const [genres, setGenres] = useState([]);
+    const {genres, setGenres} = useContext(Context);
     useEffect(() => {
         async function getGenres() {
             try {
@@ -33,7 +35,9 @@ export default function Books() {
                     })
                 }
             </nav>
-            <Outlet/>
+            <BooksContainer>
+                <Outlet/>
+            </BooksContainer>
         </>
     );
 };
