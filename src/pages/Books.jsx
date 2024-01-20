@@ -21,7 +21,6 @@ export default function Books() {
     }, []);
     return (
         <>
-            <h2>Books</h2>
             <nav>
                 {
                     genres.map(genre => {
