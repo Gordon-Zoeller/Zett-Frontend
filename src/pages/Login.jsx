@@ -2,10 +2,10 @@ import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import Continue from "../components/Continue";
 import LoginInformation from "../components/LoginInformation";
-import { Context } from "../context/Context";
+import { UserContext } from "../context/Context";
 
 export default function Login() {
-    const {setUser} = useContext(Context);
+    const {setUser} = useContext(UserContext);
     const navigate = useNavigate();
     async function login(e) {
         e.preventDefault();
@@ -22,7 +22,7 @@ export default function Login() {
                     const data = await response.json();
                     if(data.success) {
                         setUser(data.data);
-                        navigate("/home");
+                        navigate("/");
                     };
                 };
             };

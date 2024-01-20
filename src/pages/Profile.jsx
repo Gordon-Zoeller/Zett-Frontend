@@ -1,11 +1,11 @@
 import { useContext } from "react";
-import { Context } from "../context/Context";
+import { UserContext } from "../context/Context";
 import CombinedName from "../components/CombinedName";
 import Image from "../components/Image";
 import Upload from "../components/Upload";
 
 export default function Profile() {
-    const {user} = useContext(Context);
+    const {user} = useContext(UserContext);
     async function uploadBook(e) {
         e.preventDefault();
         try {

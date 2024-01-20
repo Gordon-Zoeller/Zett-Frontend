@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Context } from "./Context";
+import { UserContext } from "./Context";
 
 export default function UserContainer({children}) {
     const [user, setUser] = useState(null);
@@ -24,11 +24,11 @@ export default function UserContainer({children}) {
     }, []);
     return (
         <>
-            <Context.Provider value={{
+            <UserContext.Provider value={{
                 user, setUser,
             }}>
                 {children}
-            </Context.Provider>
+            </UserContext.Provider>
         </>
     );
 };
