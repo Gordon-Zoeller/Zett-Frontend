@@ -1,6 +1,7 @@
 import { useContext } from 'react';
 import { NavLink, Route, Routes } from 'react-router-dom';
 import './App.css'
+import BooksContainer from './context/BooksContainer';
 import { Context } from './context/Context';
 import Books from './pages/Books';
 import Genre from './pages/Genre';
@@ -41,15 +42,17 @@ function App() {
         </nav>
       </header>
       <main key="main">
-        <Routes>
-          <Route path="/" element={<Home/>}/>
-          <Route path="/books" element={<Books/>}>
-            <Route path="/books/genre/:genre" element={<Genre/>}/>
-          </Route>
-          <Route path="/register" element={<Register/>}/>
-          <Route path="/login" element={<Login/>}/>
-          <Route path="/profile" element={<Profile/>}/>
-        </Routes>
+        <BooksContainer>
+          <Routes>
+            <Route path="/" element={<Home/>}/>
+            <Route path="/books" element={<Books/>}>
+              <Route path="/books/genre/:genre" element={<Genre/>}/>
+            </Route>
+            <Route path="/register" element={<Register/>}/>
+            <Route path="/login" element={<Login/>}/>
+            <Route path="/profile" element={<Profile/>}/>
+          </Routes>
+        </BooksContainer>
       </main>
     </>
   );
