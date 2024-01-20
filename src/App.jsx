@@ -1,17 +1,17 @@
 import { useContext } from 'react';
 import { NavLink, Route, Routes } from 'react-router-dom';
 import './App.css'
-import BooksContainer from './context/BooksContainer';
-import { Context } from './context/Context';
+import { UserContext } from './context/Context';
 import Books from './pages/Books';
 import Genre from './pages/Genre';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Profile from './pages/Profile';
 import Register from './pages/Register';
+import GenresContainer from './context/GenresContainer';
 
 function App() {
-  const {user, setUser} = useContext(Context);
+  const {user, setUser} = useContext(UserContext);
   const logout = () => {
     setUser(null);
     sessionStorage.removeItem("token");
@@ -42,7 +42,7 @@ function App() {
         </nav>
       </header>
       <main key="main">
-        <BooksContainer>
+        <GenresContainer>
           <Routes>
             <Route path="/" element={<Home/>}/>
             <Route path="/books" element={<Books/>}>
@@ -50,9 +50,9 @@ function App() {
             </Route>
             <Route path="/register" element={<Register/>}/>
             <Route path="/login" element={<Login/>}/>
-            <Route path="/profile" element={<Profile/>}/>
+            <Route path="/profile" element={<Profile/>}/>            
           </Routes>
-        </BooksContainer>
+        </GenresContainer>
       </main>
       <footer>
         <p>&copy; {new Date().getFullYear()} Zett</p>
