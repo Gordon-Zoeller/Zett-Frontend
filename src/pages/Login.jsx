@@ -22,7 +22,7 @@ export default function Login() {
                     const data = await response.json();
                     if(data.success) {
                         setUser(data.data);
-                        navigate("/profile");
+                        navigate("/home");
                     };
                 };
             };
