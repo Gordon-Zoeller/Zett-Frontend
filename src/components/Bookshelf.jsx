@@ -1,4 +1,4 @@
-export default function BooksContainer({children}) {
+export default function Bookshelf({children}) {
     return (
         <>
             <div>

@@ -2,7 +2,7 @@ import { useContext, useEffect } from "react";
 import { Context } from "../context/Context";
 import { useLocation } from "react-router-dom";
 import BookCard from "../components/BookCard";
-import BooksContainer from "../components/BooksContainer";
+import Bookshelf from "../components/Bookshelf";
 
 export default function Genre() {
     const {state} = useLocation();
@@ -23,7 +23,7 @@ export default function Genre() {
     }, [state]);
     return (
         <>
-            <BooksContainer>
+            <Bookshelf>
                 {
                     books.map(book => {
                         return (
@@ -33,7 +33,7 @@ export default function Genre() {
                         );
                     })
                 }
-            </BooksContainer>
+            </Bookshelf>
         </>
     );
 };
