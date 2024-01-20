@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
 import { Context } from "./Context";
 
-export default function Container({children}) {
+export default function UserContainer({children}) {
     const [user, setUser] = useState(null);
-    const [books, setBooks] = useState([]);
     useEffect(() => {
         const token = sessionStorage.getItem("token");
         if(token) {
@@ -27,7 +26,6 @@ export default function Container({children}) {
         <>
             <Context.Provider value={{
                 user, setUser,
-                books, setBooks
             }}>
                 {children}
             </Context.Provider>

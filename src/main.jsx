@@ -2,15 +2,15 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom';
 import App from './App.jsx'
-import Container from './context/Container.jsx';
+import UserContainer from './context/UserContainer.jsx';
 import './index.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <Container>
+    <UserContainer>
       <BrowserRouter>
         <App />
       </BrowserRouter>
-      </Container>
+    </UserContainer>
   </React.StrictMode>,
 );
