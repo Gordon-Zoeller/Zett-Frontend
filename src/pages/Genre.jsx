@@ -7,18 +7,18 @@ import { byGenre } from "../services/api/books/ByGenre";
 
 export default function Genre() {
     const {state} = useLocation();
-    const {books, setBooks} = useContext(ProductContext);
+    const {products, setProducts} = useContext(ProductContext);
     useEffect(() => {
-        byGenre(state, setBooks);
+        byGenre(state, setProducts);
     }, [state]);
     return (
         <>
             <Bookshelf>
                 {
-                    books.map(book => {
+                    products.map(product => {
                         return (
                             <>
-                                <BookCard book={book}/>
+                                <BookCard product={product}/>
                             </>
                         );
                     })

@@ -5,16 +5,16 @@ import Year from "./ui/Year";
 import Price from "./ui/Price";
 import ISBN from "./ui/ISBN";
 
-export default function BookCard({book}) {
+export default function BookCard({product}) {
     return (
         <>
             <div>
-                <Cover cover={book.thumbnail}/>
-                <Title title={book.title}/>
-                <Author author={book.author}/>
-                <Year year={book.year}/>
-                <Price price={book.price}/>
-                <ISBN ISBN={book.ISBN}/>
+                <Cover cover={product.thumbnail}/>
+                <Title title={product.title}/>
+                <Author author={product.author}/>
+                <Year year={product.year}/>
+                <Price price={product.price}/>
+                <ISBN ISBN={product.ISBN}/>
             </div>
         </>
     );

@@ -2,11 +2,11 @@ import { useState } from "react";
 import { ProductContext } from "./Context";
 
 export default function BooksContainer({children}) {
-    const [books, setBooks] = useState([]);
+    const [products, setProducts] = useState([]);
     return (
         <>
             <ProductContext.Provider value={{
-                books, setBooks,
+                products, setProducts,
             }}>
                 {children}
             </ProductContext.Provider>

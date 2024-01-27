@@ -4,7 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 import App from './App.jsx'
 import UserContainer from './context/UserContainer.jsx';
 import './index.css'
-import BooksContainer from "./context/BooksContainer";
+import BooksContainer from "./context/ProductsContainer";
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
