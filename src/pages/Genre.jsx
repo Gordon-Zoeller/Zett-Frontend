@@ -2,7 +2,7 @@ import { useContext, useEffect } from "react";
 import { ProductContext } from "../context/Context";
 import { useLocation } from "react-router-dom";
 import BookCard from "../components/BookCard";
-import Bookshelf from "../components/Bookshelf";
+import Productshelf from "../components/ProductShelf";
 import { byGenre } from "../services/api/books/ByGenre";
 
 export default function Genre() {
@@ -13,7 +13,7 @@ export default function Genre() {
     }, [state]);
     return (
         <>
-            <Bookshelf>
+            <Productshelf>
                 {
                     products.map(product => {
                         return (
@@ -23,7 +23,7 @@ export default function Genre() {
                         );
                     })
                 }
-            </Bookshelf>
+            </Productshelf>
         </>
     );
 };

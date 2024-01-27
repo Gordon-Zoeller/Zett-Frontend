@@ -1,4 +1,4 @@
-export default function Bookshelf({children}) {
+export default function Productshelf({children}) {
     return (
         <>
             <div>
