@@ -1,15 +1,15 @@
 import { useState } from "react";
-import { Context } from "./Context";
+import { GenreContext } from "./Context";
 
 export default function BooksContainer({children}) {
     const [genres, setGenres] = useState([]);
     return (
         <>
-            <Context.Provider value={{
+            <GenreContext.Provider value={{
                 genres, setGenres,
             }}>
                 {children}
-            </Context.Provider>
+            </GenreContext.Provider>
         </>
     );
 };
