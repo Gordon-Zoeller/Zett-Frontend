@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { ProductContext } from "./Context";
 
-export default function BooksContainer({children}) {
+export default function ProductsContainer({children}) {
     const [products, setProducts] = useState([]);
     return (
         <>
