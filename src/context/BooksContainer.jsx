@@ -1,15 +1,15 @@
 import { useState } from "react";
-import { Context } from "./Context";
+import { ProductContext } from "./Context";
 
 export default function BooksContainer({children}) {
     const [books, setBooks] = useState([]);
     return (
         <>
-            <Context.Provider value={{
+            <ProductContext.Provider value={{
                 books, setBooks,
             }}>
                 {children}
-            </Context.Provider>
+            </ProductContext.Provider>
         </>
     );
 };
