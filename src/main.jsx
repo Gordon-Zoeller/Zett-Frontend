@@ -4,16 +4,16 @@ import { BrowserRouter } from 'react-router-dom';
 import App from './App.jsx'
 import UserContainer from './context/UserContainer.jsx';
 import './index.css'
-import BooksContainer from "./context/ProductsContainer";
+import ProductsContainer from "./context/ProductsContainer";
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <UserContainer>
-      <BooksContainer>
+      <ProductsContainer>
         <BrowserRouter>
           <App />
         </BrowserRouter>
-      </BooksContainer>
+      </ProductsContainer>
     </UserContainer>
   </React.StrictMode>,
 );
