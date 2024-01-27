@@ -4,10 +4,10 @@ import Continue from "../components/Continue";
 import Name from "../components/Name";
 import LoginInformation from "../components/LoginInformation";
 import ReEnter from "../components/ReEnter";
-import { Context } from "../context/Context";
+import { UserContext } from "../context/Context";
 
 export default function Register() {
-    const {setUser} = useContext(Context);
+    const {setUser} = useContext(UserContext);
     const navigate = useNavigate();
     async function register(e) {
         e.preventDefault();
