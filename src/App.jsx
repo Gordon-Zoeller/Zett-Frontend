@@ -24,7 +24,6 @@ function App() {
             <li><NavLink to="/">Logo</NavLink></li>
           </ul>
           <ul>
-            <li><NavLink to="/">Home</NavLink></li>
             <li><NavLink to="/books">Books</NavLink></li>
             {
               !user ? (
