@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import Continue from "../components/Continue";
-import LoginInformation from "../components/LoginInformation";
+import SignInInformation from "../components/SignInInformation";
 import { UserContext } from "../context/Context";
 
 export default function Login() {
@@ -33,7 +33,7 @@ export default function Login() {
     return (
         <>
             <form onSubmit={login}>
-                <LoginInformation/>
+                <SignInInformation/>
                 <Continue/>
             </form>
         </>

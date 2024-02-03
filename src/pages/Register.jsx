@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import Continue from "../components/Continue";
 import Name from "../components/Name";
-import LoginInformation from "../components/LoginInformation";
+import SignInInformation from "../components/SignInInformation";
 import ReEnter from "../components/ReEnter";
 import { UserContext } from "../context/Context";
 
@@ -42,7 +42,7 @@ export default function Register() {
         <>
             <form onSubmit={register}>
                 <Name/>
-                <LoginInformation/>
+                <SignInInformation/>
                 <ReEnter/>
                 <Continue/>
             </form>
