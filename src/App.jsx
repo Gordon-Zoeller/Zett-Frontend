@@ -5,7 +5,7 @@ import { UserContext } from './context/Context';
 import Genres from './pages/Genres';
 import Products from './pages/Products';
 import Home from './pages/Home';
-import Login from './pages/Login';
+import SignIn from './pages/SignIn';
 import Profile from './pages/Profile';
 import Register from './pages/Register';
 import GenresContainer from './context/GenresContainer';
@@ -48,7 +48,7 @@ function App() {
               <Route path="/books/genre/:genre" element={<Products/>}/>
             </Route>
             <Route path="/signup" element={<Register/>}/>
-            <Route path="/signin" element={<Login/>}/>
+            <Route path="/signin" element={<SignIn/>}/>
             <Route path="/profile" element={<Profile/>}/>            
           </Routes>
         </GenresContainer>

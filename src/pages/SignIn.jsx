@@ -4,17 +4,17 @@ import Continue from "../components/Continue";
 import SignInInformation from "../components/SignInInformation";
 import { UserContext } from "../context/Context";
 
-export default function Login() {
+export default function SignIn() {
     const {setUser} = useContext(UserContext);
     const navigate = useNavigate();
-    async function login(e) {
+    async function signin(e) {
         e.preventDefault();
         const user = {
             email: e.target.email.value,
             password: e.target.password.value,
         };
         try {
-            const response = await fetch(`${import.meta.env.VITE_LOGIN}`, {method: "POST",headers: {"Content-Type": "application/json"}, body: JSON.stringify(user)});
+            const response = await fetch(`${import.meta.env.VITE_SIGNIN}`, {method: "POST",headers: {"Content-Type": "application/json"}, body: JSON.stringify(user)});
             if(response.ok) {
                 const token = response.headers.get("token");
                 if(token) {
@@ -32,7 +32,7 @@ export default function Login() {
     };
     return (
         <>
-            <form onSubmit={login}>
+            <form onSubmit={signin}>
                 <SignInInformation/>
                 <Continue/>
             </form>
