@@ -28,7 +28,7 @@ function App() {
             {
               !user ? (
                 <>
-                  <li><NavLink to="/register">Register</NavLink></li>
+                  <li><NavLink to="/signup">Sign Up</NavLink></li>
                   <li><NavLink to="/login">Login</NavLink></li>
                 </>
                 ) : (
@@ -47,7 +47,7 @@ function App() {
             <Route path="/books" element={<Genres/>}>
               <Route path="/books/genre/:genre" element={<Products/>}/>
             </Route>
-            <Route path="/register" element={<Register/>}/>
+            <Route path="/signup" element={<Register/>}/>
             <Route path="/login" element={<Login/>}/>
             <Route path="/profile" element={<Profile/>}/>            
           </Routes>
