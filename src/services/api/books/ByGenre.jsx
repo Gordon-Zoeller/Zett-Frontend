@@ -1,4 +1,4 @@
-export const byGenre = async (state, setBooks) => {
+export const booksByGenre = async (state, setBooks) => {
     try {
         const response = await fetch(`${import.meta.env.VITE_BOOKS_BY_GENRE}${state}`);
         if(response.ok) {
