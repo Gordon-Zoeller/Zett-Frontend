@@ -12,7 +12,7 @@ import GenresContainer from './context/GenresContainer';
 
 function App() {
   const {user, setUser} = useContext(UserContext);
-  const logout = () => {
+  const signout = () => {
     setUser(null);
     sessionStorage.removeItem("token");
   };
@@ -34,7 +34,7 @@ function App() {
                 ) : (
                 <>
                   <li><NavLink to="/profile">Profile</NavLink></li>
-                  <li onClick={logout}><NavLink to="/">Logout</NavLink></li>
+                  <li onClick={signout}><NavLink to="/">Sign Out</NavLink></li>
                 </>
             )}
           </ul>
