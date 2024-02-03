@@ -23,20 +23,20 @@ export default function Genres() {
     return (
         <>
             <nav>
-                {
-                    genres.map(genre => {
-                        const snakeCase = genre.genre.replaceAll(" ", "_");
-                        return (
-                            <>
-                                <h3 key={genre._id}><NavLink to={`/books/genre/${snakeCase}`} state={snakeCase}>{genre.genre}</NavLink></h3>
-                            </>
-                        );
-                    })
-                }
+                <ul>
+                    {
+                        genres.map(genre => {
+                            const snakeCase = genre.genre.replaceAll(" ", "_");
+                            return (
+                                <>
+                                    <li key={genre._id}><NavLink to={`/books/genre/${snakeCase}`} state={snakeCase}>{genre.genre}</NavLink></li>
+                                </>
+                            );
+                        })
+                    }
+                </ul>
             </nav>
-            
-                <Outlet/>
-            
+            <Outlet/>
         </>
     );
 };
