@@ -1,5 +1,5 @@
-import FirstName from "./ui/FirstName";
-import LastName from "./ui/LastName";
+import FirstName from "./ui/input/FirstName";
+import LastName from "./ui/input/LastName";
 
 export default function name() {
     return (

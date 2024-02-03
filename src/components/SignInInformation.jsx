@@ -1,5 +1,5 @@
-import Email from "./ui/Email";
-import Password from "./ui/Password";
+import Email from "./ui/input/Email";
+import Password from "./ui/input/Password";
 
 export default function LoginInformation() {
     return (

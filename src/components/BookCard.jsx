@@ -1,9 +1,9 @@
-import Cover from "./ui/Cover";
-import Title from "./ui/Title";
-import Author from "./ui/Author";
-import Year from "./ui/Year";
-import Price from "./ui/Price";
-import ISBN from "./ui/ISBN";
+import Cover from "./ui/render/Cover";
+import Title from "./ui/render/Title";
+import Author from "./ui/render/Author";
+import Year from "./ui/render/Year";
+import Price from "./ui/render/Price";
+import ISBN from "./ui/render/ISBN";
 
 export default function BookCard({product}) {
     return (
