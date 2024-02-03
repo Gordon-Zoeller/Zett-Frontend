@@ -6,10 +6,10 @@ import SignInInformation from "../components/SignInInformation";
 import ReEnter from "../components/ReEnter";
 import { UserContext } from "../context/Context";
 
-export default function Register() {
+export default function SignUp() {
     const {setUser} = useContext(UserContext);
     const navigate = useNavigate();
-    async function register(e) {
+    async function signup(e) {
         e.preventDefault();
         if(e.target.password.value === e.target.reEnter.value) {
             const user = {
@@ -19,7 +19,7 @@ export default function Register() {
                 password: e.target.password.value,
             };
             try {
-                const response = await fetch(`${import.meta.env.VITE_REGISTER}`, {method: "POST", headers: {"Content-Type": "application/json"}, body: JSON.stringify(user)});
+                const response = await fetch(`${import.meta.env.VITE_SIGNUP}`, {method: "POST", headers: {"Content-Type": "application/json"}, body: JSON.stringify(user)});
                 if(response.ok) {
                     const token = response.headers.get("token");
                     if(token) {
@@ -40,7 +40,7 @@ export default function Register() {
     };
     return (
         <>
-            <form onSubmit={register}>
+            <form onSubmit={signup}>
                 <Name/>
                 <SignInInformation/>
                 <ReEnter/>

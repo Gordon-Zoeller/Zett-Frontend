@@ -7,7 +7,7 @@ import Products from './pages/Products';
 import Home from './pages/Home';
 import SignIn from './pages/SignIn';
 import Profile from './pages/Profile';
-import Register from './pages/Register';
+import SignUp from './pages/SignUp';
 import GenresContainer from './context/GenresContainer';
 
 function App() {
@@ -47,7 +47,7 @@ function App() {
             <Route path="/books" element={<Genres/>}>
               <Route path="/books/genre/:genre" element={<Products/>}/>
             </Route>
-            <Route path="/signup" element={<Register/>}/>
+            <Route path="/signup" element={<SignUp/>}/>
             <Route path="/signin" element={<SignIn/>}/>
             <Route path="/profile" element={<Profile/>}/>            
           </Routes>
