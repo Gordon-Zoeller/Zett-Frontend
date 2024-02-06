@@ -1,7 +1,7 @@
 export default function Price(props) {
     return (
         <>
-            <p>{props.price}</p>
+            <p>${props.price}</p>
         </>
     );
 };

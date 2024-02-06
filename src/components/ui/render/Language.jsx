@@ -1,5 +1,7 @@
-export default function Language() {
+export default function Language(props) {
     return (
-        <></>
+        <>
+            <p>{props.language}</p>
+        </>
     );
 };

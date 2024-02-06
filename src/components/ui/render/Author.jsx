@@ -1,7 +1,7 @@
 export default function Author(props) {
     return (
         <>
-            <h3>{props.author}</h3>
+            <h3>by {props.author}</h3>
         </>
     );
 };
