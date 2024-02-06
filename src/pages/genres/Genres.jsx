@@ -7,7 +7,7 @@ export default function Genres() {
     useEffect(() => {
         async function getGenres() {
             try {
-                const response = await fetch(`${import.meta.env.VITE_GENRES_BOOKS}`);
+                const response = await fetch(`${import.meta.env.VITE_BASE_URL}${import.meta.env.VITE_GENRES_BOOKS}`);
                 if(response.ok) {
                     const data = await response.json();
                     if(data.success) {

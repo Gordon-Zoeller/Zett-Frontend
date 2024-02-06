@@ -8,7 +8,7 @@ export default function UserContainer({children}) {
         if(token) {
             async function verify() {
                 try {
-                    const response = await fetch(`${import.meta.env.VITE_VERIFY_TOKEN}`, {method: "GET", headers: {token: token}});
+                    const response = await fetch(`${import.meta.env.VITE_BASE_URL}${import.meta.env.VITE_VERIFY}`, {method: "GET", headers: {token: token}});
                     if(response.ok) {
                         const data = await response.json();
                         if(data.success) {

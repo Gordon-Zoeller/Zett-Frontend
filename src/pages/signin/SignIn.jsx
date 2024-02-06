@@ -14,7 +14,7 @@ export default function SignIn() {
             password: e.target.password.value,
         };
         try {
-            const response = await fetch(`${import.meta.env.VITE_SIGNIN}`, {method: "POST",headers: {"Content-Type": "application/json"}, body: JSON.stringify(user)});
+            const response = await fetch(`${import.meta.env.VITE_BASE_URL}${import.meta.env.VITE_SIGNIN}`, {method: "POST",headers: {"Content-Type": "application/json"}, body: JSON.stringify(user)});
             if(response.ok) {
                 const token = response.headers.get("token");
                 if(token) {
