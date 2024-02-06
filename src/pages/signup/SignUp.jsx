@@ -1,10 +1,9 @@
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import Continue from "../components/Continue";
-import Name from "../components/Name";
-import SignInInformation from "../components/SignInInformation";
-import ReEnter from "../components/ReEnter";
-import { UserContext } from "../context/Context";
+import Continue from "../../components/Continue";
+import ReEnter from "../../components/ui/input/ReEnter";
+import { UserContext } from "../../context/Context";
+import SignUpInformation from "../../components/SignUpInformation";
 
 export default function SignUp() {
     const {setUser} = useContext(UserContext);
@@ -27,7 +26,7 @@ export default function SignUp() {
                         const data = await response.json();
                         if(data.success) {
                             setUser(data.data);
-                            navigate("/profile");
+                            navigate("/user/profile");
                         };
                     };
                 };
@@ -41,8 +40,7 @@ export default function SignUp() {
     return (
         <>
             <form onSubmit={signup}>
-                <Name/>
-                <SignInInformation/>
+                <SignUpInformation/>
                 <ReEnter/>
                 <Continue/>
             </form>

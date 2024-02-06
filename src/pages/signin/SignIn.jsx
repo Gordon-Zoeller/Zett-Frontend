@@ -1,8 +1,8 @@
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import Continue from "../components/Continue";
-import SignInInformation from "../components/SignInInformation";
-import { UserContext } from "../context/Context";
+import Continue from "../../components/Continue";
+import SignInInformation from "../../components/SignInInformation";
+import { UserContext } from "../../context/Context";
 
 export default function SignIn() {
     const {setUser} = useContext(UserContext);

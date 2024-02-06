@@ -9,12 +9,12 @@ export default function BookCard({product}) {
     return (
         <>
             <div>
-                <Cover cover={product.thumbnail}/>
+                {/*<Cover cover={product.thumbnail}/>*/}
                 <Title title={product.title}/>
                 <Author author={product.author}/>
-                <Year year={product.year}/>
-                <Price price={product.price}/>
-                <ISBN ISBN={product.ISBN}/>
+                <Year year={product.edition.hardcover.year}/>
+                <Price price={product.edition.hardcover.price}/>
+                <ISBN ISBN={product.edition.hardcover.ISBN}/>
             </div>
         </>
     );

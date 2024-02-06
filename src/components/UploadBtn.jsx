@@ -1,4 +1,4 @@
-export default function Upload() {
+export default function UploadBtn() {
     return (
         <>
             <div>
