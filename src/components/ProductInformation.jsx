@@ -7,8 +7,8 @@ export default function ProductInformation({children}) {
     return (
         <>
             <Title/>
-            {children}
             <Genre/>
+            {children}
             <Language/>
             <Description/>
         </>
