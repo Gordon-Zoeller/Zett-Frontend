@@ -5,6 +5,7 @@ import Pages from "../../../components/ui/input/Pages";
 import Edition from "../../../components/Edition";
 import { uploadBook } from "../../../services/api/books/UploadBook";
 import Publisher from "../../../components/ui/input/Publisher";
+import ISBN from "../../../components/ui/input/ISBN";
 import ProductInformation from "../../../components/ProductInformation";
 
 export default function Book() {
@@ -23,16 +24,18 @@ export default function Book() {
                     <div>
                         <h6>Hardcover</h6>
                     </div>
-                    <Pages/>
                     <Edition>
+                        <Pages/>
                         <Publisher/>
+                        <ISBN/>
                     </Edition>
                     <div>
                         <h6>Paperback</h6>
                     </div>
-                    <Pages/>
                     <Edition>
+                        <Pages/>
                         <Publisher/>
+                        <ISBN/>
                     </Edition>
                     <UploadBtn/>
                 </form>
