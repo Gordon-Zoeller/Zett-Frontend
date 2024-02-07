@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { NavLink, Route, Routes } from 'react-router-dom';
+import { NavLink, Route, Routes, useNavigate } from 'react-router-dom';
 import './App.css'
 import { UserContext } from './context/Context';
 import Genres from './pages/genres/Genres';
@@ -16,7 +16,15 @@ import Book from './pages/admin/book/Book';
 import Movie from "./pages/admin/movie/Movie";
 
 function App() {
+  const navigate = useNavigate();
   const {user, setUser} = useContext(UserContext);
+  const search = async (e) => {
+    e.preventDefault();
+    const plus = e.target.search.value.replaceAll(" ", "+");
+    const separator = e.target.category.value;
+    e.target.reset();
+    navigate(`/books/search?q=${plus}&c=${separator}`);
+  };
   const signout = () => {
     setUser(null);
     sessionStorage.removeItem("token");
@@ -27,6 +35,23 @@ function App() {
         <nav>
           <ul>
             <li><NavLink to="/">Logo</NavLink></li>
+          </ul>
+          <ul>
+            <li>
+              <search>
+                <form onSubmit={search}>
+                  <select name="category" id="category">
+                    <option value="books">Books</option>
+                    <option value="movies">Movies</option>
+                    <option value="albums">Albums</option>
+                  </select>
+                  <input type="search" name="search" id="search" />
+                  <button type="submit">
+                    <FaSearch className='icon'/>
+                  </button>
+                </form>
+              </search>
+            </li>
           </ul>
           <ul>
             <li><NavLink to="/books">Books</NavLink></li>
@@ -57,6 +82,7 @@ function App() {
             <Route path="/" element={<Home/>}/>
             <Route path="/books" element={<Genres/>}>
               <Route path="/books/genre/:genre" element={<Products/>}/>
+              <Route path="/books/:search" element={<Products/>}/>
             </Route>
             <Route path="/signup" element={<SignUp/>}/>
             <Route path="/signin" element={<SignIn/>}/>
