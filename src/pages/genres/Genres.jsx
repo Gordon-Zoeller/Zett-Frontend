@@ -1,24 +1,12 @@
 import { useContext, useEffect } from "react";
 import { NavLink, Outlet } from "react-router-dom";
 import { GenreContext } from "../../context/Context";
+import { getGenres } from "../../services/api/genres/getGenres";
 
 export default function Genres() {
     const {genres, setGenres} = useContext(GenreContext);
     useEffect(() => {
-        async function getGenres() {
-            try {
-                const response = await fetch(`${import.meta.env.VITE_BASE_URL}${import.meta.env.VITE_GENRES_BOOKS}`);
-                if(response.ok) {
-                    const data = await response.json();
-                    if(data.success) {
-                        setGenres(data.data);
-                    };
-                };
-            } catch (error) {
-                //
-            }
-        };
-        getGenres();
+        getGenres(setGenres);
     }, []);
     return (
         <>

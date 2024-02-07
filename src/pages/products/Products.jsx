@@ -2,18 +2,32 @@ import { useContext, useEffect } from "react";
 import { ProductContext } from "../../context/Context";
 import { useLocation } from "react-router-dom";
 import BookCard from "../../components/BookCard";
-import Productshelf from "../../components/ProductShelf";
 import { booksByGenre } from "../../services/api/books/ByGenre";
+import { booksBySearch } from "../../services/api/books/BySearch";
 
 export default function Products() {
     const {state} = useLocation();
     const {products, setProducts} = useContext(ProductContext);
+    const query = new URLSearchParams(window.location.search);
+    let path = "";
+    if(query.size !== 0) {
+        const getPath = () => {
+            let string = "";
+            for(const pair of query) string += `${pair[1]}/`;
+            return string.replaceAll(" ", "+");
+        };
+        path = getPath();
+    };
     useEffect(() => {
-        booksByGenre(state, setProducts);
-    }, [state]);
+        if(state) {
+            booksByGenre(state, setProducts);
+        } else {
+            booksBySearch(path, setProducts);
+        };
+    }, [state, path]);
     return (
         <>
-            <Productshelf>
+            <div>
                 {
                     products.map(product => {
                         return (
@@ -23,7 +37,7 @@ export default function Products() {
                         );
                     })
                 }
-            </Productshelf>
+            </div>
         </>
     );
 };

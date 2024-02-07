@@ -8,27 +8,10 @@ import Description from "../../../components/ui/input/Description";
 import Pages from "../../../components/ui/input/Pages";
 import Language from "../../../components/ui/input/Language";
 import Edition from "../../../components/Edition";
+import { uploadBook } from "../../../services/api/books/UploadBook";
 
 export default function Book() {
     const {user} = useContext(UserContext);
-    async function uploadBook(e) {
-        e.preventDefault();
-        try {
-            const book = new FormData(e.target);
-            const token = sessionStorage.getItem("token");
-            if(token) {
-                const response = await fetch(`${import.meta.env.VITE_BASE_URL}${import.meta.env.VITE_UPLOAD_BOOK}`, {method: "POST", headers: {token: token}, body: book});
-                if(response.ok) {
-                    const data = await response.json();
-                    if(data.success) {
-                        console.log(data.message);
-                    };
-                };
-            };
-        } catch (error) {
-            //
-        };
-    };
     return (
         <>
             {
