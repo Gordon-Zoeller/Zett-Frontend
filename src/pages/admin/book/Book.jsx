@@ -1,14 +1,11 @@
 import { useContext } from "react";
 import { UserContext } from "../../../context/Context";
 import UploadBtn from "../../../components/ui/btn/UploadBtn";
-import Title from "../../../components/ui/input/Title";
-import Author from "../../../components/ui/input/Author";
-import Genre from "../../../components/ui/input/Genre";
-import Description from "../../../components/ui/input/Description";
 import Pages from "../../../components/ui/input/Pages";
-import Language from "../../../components/ui/input/Language";
 import Edition from "../../../components/Edition";
 import { uploadBook } from "../../../services/api/books/UploadBook";
+import Publisher from "../../../components/ui/input/Publisher";
+import ProductInformation from "../../../components/ProductInformation";
 
 export default function Book() {
     const {user} = useContext(UserContext);
@@ -17,21 +14,26 @@ export default function Book() {
             {
                 user?.role === "admin" &&
                 <form onSubmit={uploadBook}>
-                    <Title/>
-                    <Author/>
-                    <Genre/>
-                    <Language/>
-                    <Description/>
+                    <ProductInformation>
+                        <div>
+                            <label htmlFor="author">Author</label>
+                            <input type="text" name="author" id="author" />
+                        </div>
+                    </ProductInformation>
                     <div>
                         <h6>Hardcover</h6>
                     </div>
                     <Pages/>
-                    <Edition/>
+                    <Edition>
+                        <Publisher/>
+                    </Edition>
                     <div>
                         <h6>Paperback</h6>
                     </div>
                     <Pages/>
-                    <Edition/>
+                    <Edition>
+                        <Publisher/>
+                    </Edition>
                     <UploadBtn/>
                 </form>
             }
