@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { UserContext } from "../../../context/Context";
-import UploadBtn from "../../../components/UploadBtn";
+import UploadBtn from "../../../components/ui/btn/UploadBtn";
 import Title from "../../../components/ui/input/Title";
 import Author from "../../../components/ui/input/Author";
 import Genre from "../../../components/ui/input/Genre";

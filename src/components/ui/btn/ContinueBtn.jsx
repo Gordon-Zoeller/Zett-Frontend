@@ -1,4 +1,4 @@
-export default function Continue() {
+export default function ContinueBtn() {
     return (
         <>
             <div>

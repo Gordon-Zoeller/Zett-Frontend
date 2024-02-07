@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import Continue from "../../components/Continue";
+import ContinueBtn from "../../components/ui/btn/ContinueBtn";
 import ReEnter from "../../components/ui/input/ReEnter";
 import { UserContext } from "../../context/Context";
 import SignUpInformation from "../../components/SignUpInformation";
@@ -14,7 +14,7 @@ export default function SignUp() {
             <form onSubmit={(e) => signup(e, setUser, navigate)}>
                 <SignUpInformation/>
                 <ReEnter/>
-                <Continue/>
+                <ContinueBtn/>
             </form>
         </>
     );
