@@ -3,7 +3,7 @@ import { UserContext } from "../../../context/Context";
 import UploadBtn from "../../../components/ui/btn/UploadBtn";
 import Pages from "../../../components/ui/input/Pages";
 import Edition from "../../../components/Edition";
-import { uploadBook } from "../../../services/api/books/UploadBook";
+import { uploadBook } from "../../../services/api/books/uploadBook";
 import Publisher from "../../../components/ui/input/Publisher";
 import ISBN from "../../../components/ui/input/ISBN";
 import ProductInformation from "../../../components/ProductInformation";

@@ -2,7 +2,7 @@ import { useContext } from "react";
 import Edition from "../../../components/Edition";
 import ProductInformation from "../../../components/ProductInformation";
 import { UserContext } from "../../../context/Context";
-import { uploadMovie } from "../../../services/api/movies/UploadMovie";
+import { uploadMovie } from "../../../services/api/movies/uploadMovie";
 
 export default function Movie() {
     const {user} = useContext(UserContext);

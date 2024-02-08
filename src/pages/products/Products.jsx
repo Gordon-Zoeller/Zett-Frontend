@@ -2,8 +2,8 @@ import { useContext, useEffect } from "react";
 import { ProductContext } from "../../context/Context";
 import { useLocation } from "react-router-dom";
 import BookCard from "../../components/BookCard";
-import { booksByGenre } from "../../services/api/books/ByGenre";
-import { booksBySearch } from "../../services/api/books/BySearch";
+import { booksByGenre } from "../../services/api/books/byGenre";
+import { booksBySearch } from "../../services/api/books/bySearch";
 
 export default function Products() {
     const {state} = useLocation();
