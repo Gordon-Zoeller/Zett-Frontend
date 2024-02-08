@@ -47,7 +47,7 @@ function App() {
                   </select>
                   <input type="search" name="search" id="search" />
                   <button type="submit">
-                    <FaSearch className='icon'/>
+                    <FaSearch className="icon"/>
                   </button>
                 </form>
               </search>
@@ -63,7 +63,7 @@ function App() {
                 </>
                 ) : (
                 <>
-                  <li><FaUser/></li>
+                  <li><FaUser className="icon"/></li>
                   <ul>
                     <li><NavLink to="/user/profile">Profile</NavLink></li>
                     {
