@@ -15,12 +15,11 @@ export default function Book() {
             {
                 user?.role === "admin" &&
                 <form onSubmit={uploadBook}>
-                    <ProductInformation>
-                        <div>
-                            <label htmlFor="author">Author</label>
-                            <input type="text" name="author" id="author" />
-                        </div>
-                    </ProductInformation>
+                    <div>
+                        <label htmlFor="author">Author</label>
+                        <input type="text" name="author" id="author" />
+                    </div>
+                    <ProductInformation/>
                     <div>
                         <h6>Hardcover</h6>
                     </div>
