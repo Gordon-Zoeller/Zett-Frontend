@@ -1,11 +1,22 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import Edition from "../../../components/Edition";
 import ProductInformation from "../../../components/ProductInformation";
 import { UserContext } from "../../../context/Context";
 import { uploadMovie } from "../../../services/api/movies/uploadMovie";
+import { FaMinus, FaPlus } from "react-icons/fa";
+import UploadBtn from "../../../components/ui/btn/UploadBtn";
 
 export default function Movie() {
+    const [actors, setActors] = useState([]);
     const {user} = useContext(UserContext);
+    const plus = () => {
+        let actor = new Date().getTime();
+        setActors([...actors, actor]);
+    };
+    const minus = (id) => {
+        const actorsUpdated = actors.filter(actor => actor !== id);
+        setActors(actorsUpdated);
+    };
     return (
         <>
             {
@@ -16,9 +27,27 @@ export default function Movie() {
                         <input type="text" name="director" id="director" />
                     </div>
                     <div>
-                        <label htmlFor="actors">Actors</label>
-                        <textarea name="actors" id="actors" cols="30" rows="10"></textarea>
+                        <label htmlFor="actor">Actor</label>
+                        <input type="text" name="actor" id="actor" />
+                        <button type="button" onClick={plus}>
+                            <FaPlus className="icon"/>
+                        </button>
                     </div>
+                    {
+                        actors.map((id, index) => {
+                            return (
+                                <>
+                                    <div>
+                                        <label htmlFor={`actor${index}`}>Actor</label>
+                                        <input type="text" name={`actor${index}`} id={`actor${index}`} />
+                                        <button type="button" onClick={() => minus(id)}>
+                                            <FaMinus className="icon"/>
+                                        </button>
+                                    </div>
+                                </>
+                            );
+                        })
+                    }
                     <ProductInformation>
                         <div>
                             <label htmlFor="subtitles">Subtitles</label>
@@ -49,6 +78,7 @@ export default function Movie() {
                         <h6>Blue-ray</h6>
                     </div>
                     <Edition/>
+                    <UploadBtn/>
                 </form>
             }
         </>
