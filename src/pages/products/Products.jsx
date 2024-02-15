@@ -38,13 +38,13 @@ export default function Products() {
             <div>
                 {
                     products.map(product => {
-                        if(state.category === "books") {
+                        if(path.includes("books")  || state.category === "books") {
                             return (
                                 <>
                                     <BookCard product={product}/>
                                 </>
                             );
-                        } else if(state.category === "movies") {
+                        } else if(path.includes("movies") || state.category === "movies") {
                             return (
                                 <>
                                     <MovieCard product={product}/>
