@@ -3,21 +3,21 @@ import { NavLink, Outlet } from "react-router-dom";
 import { GenreContext } from "../../context/Context";
 import { getGenres } from "../../services/api/genres/getGenres";
 
-export default function Genres() {
+export default function Genres(props) {
     const {genres, setGenres} = useContext(GenreContext);
     useEffect(() => {
-        getGenres(setGenres);
-    }, []);
+        getGenres(setGenres, props);
+    }, [props]);
     return (
         <>
             <nav>
                 <ul>
                     {
                         genres.map(genre => {
-                            const snakeCase = genre.genre.replaceAll(" ", "_");
+                            const snake = genre.genre.replaceAll(" ", "_");
                             return (
                                 <>
-                                    <li key={genre._id}><NavLink to={`/books/genre/${snakeCase}`} state={snakeCase}>{genre.genre}</NavLink></li>
+                                    <li key={genre._id}><NavLink to={`/${props.category}/genre/${snake}`} state={{snake: snake, category: props.category}}>{genre.genre}</NavLink></li>
                                 </>
                             );
                         })
