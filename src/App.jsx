@@ -14,6 +14,7 @@ import User from './pages/user/User';
 import Admin from './pages/admin/Admin';
 import Book from './pages/admin/book/Book';
 import Movie from "./pages/admin/movie/Movie";
+import NotFound from "./pages/notFound/NotFound";
 
 function App() {
   const navigate = useNavigate();
@@ -96,7 +97,8 @@ function App() {
                 <Route path="/user/admin/book" element={<Book/>}/>
                 <Route path="/user/admin/movie" element={<Movie/>}/>
               </Route>
-            </Route>       
+            </Route>
+            <Route path="*" element={<NotFound/>}/>
           </Routes>
         </GenresContainer>
       </main>
