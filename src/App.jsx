@@ -55,6 +55,7 @@ function App() {
           </ul>
           <ul>
             <li><NavLink to="/books">Books</NavLink></li>
+            <li><NavLink to="/movies">Movies</NavLink></li>
             {
               !user ? (
                 <>
@@ -80,9 +81,12 @@ function App() {
         <GenresContainer>
           <Routes>
             <Route path="/" element={<Home/>}/>
-            <Route path="/books" element={<Genres/>}>
+            <Route path="/books" element={<Genres category="books"/>}>
               <Route path="/books/genre/:genre" element={<Products/>}/>
               <Route path="/books/:search" element={<Products/>}/>
+            </Route>
+            <Route path="/movies" element={<Genres category="movies"/>}>
+              <Route path="/movies/genre/:genre" element={<Products/>}/>
             </Route>
             <Route path="/signup" element={<SignUp/>}/>
             <Route path="/signin" element={<SignIn/>}/>
