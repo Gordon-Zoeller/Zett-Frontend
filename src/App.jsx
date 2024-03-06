@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { NavLink, Route, Routes, useNavigate } from 'react-router-dom';
 import './App.css'
-import { UserContext } from './context/Context';
+import { ProductContext, UserContext } from './context/Context';
 import Genres from './pages/genres/Genres';
 import Products from './pages/products/Products';
 import Home from './pages/home/Home';
@@ -19,12 +19,13 @@ import NotFound from "./pages/notFound/NotFound";
 function App() {
   const navigate = useNavigate();
   const {user, setUser} = useContext(UserContext);
+  const {formRef} = useContext(ProductContext);
   const search = async (e) => {
     e.preventDefault();
     const plus = e.target.search.value.replaceAll(" ", "+");
     const separator = e.target.category.value;
-    e.target.reset();
-    navigate(`/books/search?q=${plus}&c=${separator}`);
+    e.target.search.value = "";
+    navigate(`/${separator}/search?q=${plus}&c=${separator}`);
   };
   const signout = () => {
     setUser(null);
@@ -41,7 +42,7 @@ function App() {
             <li>
               <search>
                 <form onSubmit={search}>
-                  <select name="category" id="category">
+                  <select ref={formRef} name="category" id="category">
                     <option value="books">Books</option>
                     <option value="movies">Movies</option>
                     <option value="albums">Albums</option>
@@ -88,6 +89,7 @@ function App() {
             </Route>
             <Route path="/movies" element={<Genres category="movies"/>}>
               <Route path="/movies/genre/:genre" element={<Products/>}/>
+              <Route path="/movies/:search" element={<Products/>}/>
             </Route>
             <Route path="/signup" element={<SignUp/>}/>
             <Route path="/signin" element={<SignIn/>}/>
