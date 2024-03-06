@@ -4,14 +4,15 @@ import { useLocation } from "react-router-dom";
 import BookCard from "../../components/BookCard";
 import MovieCard from "../../components/MovieCard";
 import { booksByGenre } from "../../services/api/books/byGenre";
-import { booksBySearch } from "../../services/api/books/bySearch";
+import { bySearch } from "../../services/api/search/bySearch";
 import { moviesByGenre } from "../../services/api/movies/byGenre";
 
 export default function Products() {
     const {state} = useLocation();
     const {products, setProducts} = useContext(ProductContext);
     const query = new URLSearchParams(window.location.search);
-    let path = "";
+    let path = `${query.get("q").replaceAll(" ", "+")}/${query.get("c")}`;
+    /*
     if(query.size !== 0) {
         const getPath = () => {
             let string = "";
@@ -20,6 +21,7 @@ export default function Products() {
         };
         path = getPath();
     };
+    */
     useEffect(() => {
         if(state) {
             switch(state.category) {
@@ -30,7 +32,7 @@ export default function Products() {
                 default: console.log("hello world");
             };
         } else {
-            booksBySearch(path, setProducts);
+            bySearch(path, setProducts);
         };
     }, [state, path]);
     return (
@@ -38,19 +40,48 @@ export default function Products() {
             <div>
                 {
                     products.map(product => {
-                        if(path.includes("books")  || state.category === "books") {
+                        if(state === null) {
+                            if(path.endsWith("books")) {
+                                return (
+                                    <>
+                                        <BookCard product={product}/>
+                                    </>
+                                );
+                            } else if(path.endsWith("movies")) {
+                                return (
+                                    <>
+                                        <MovieCard product={product}/>
+                                    </>
+                                );
+                            };
+                        } else {
+                            if(path.endsWith("books")  || state.category === "books") {
+                                return (
+                                    <>
+                                        <BookCard product={product}/>
+                                    </>
+                                );
+                            } else if(path.endsWith("movies") || state.category === "movies") {
+                                return (
+                                    <>
+                                        <MovieCard product={product}/>
+                                    </>
+                                );
+                            };
+                        }
+                        /*if(path.endsWith("books")  || state.category === "books") {
                             return (
                                 <>
                                     <BookCard product={product}/>
                                 </>
                             );
-                        } else if(path.includes("movies") || state.category === "movies") {
+                        } else if(path.endsWith("movies") || state.category === "movies") {
                             return (
                                 <>
                                     <MovieCard product={product}/>
                                 </>
                             );
-                        }
+                        };*/
                     })
                 }
             </div>
