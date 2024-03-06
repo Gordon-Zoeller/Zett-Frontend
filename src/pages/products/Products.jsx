@@ -69,19 +69,6 @@ export default function Products() {
                                 );
                             };
                         }
-                        /*if(path.endsWith("books")  || state.category === "books") {
-                            return (
-                                <>
-                                    <BookCard product={product}/>
-                                </>
-                            );
-                        } else if(path.endsWith("movies") || state.category === "movies") {
-                            return (
-                                <>
-                                    <MovieCard product={product}/>
-                                </>
-                            );
-                        };*/
                     })
                 }
             </div>
