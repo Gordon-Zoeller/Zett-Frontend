@@ -11,7 +11,10 @@ export default function Products() {
     const {state} = useLocation();
     const {products, setProducts} = useContext(ProductContext);
     const query = new URLSearchParams(window.location.search);
-    let path = `${query.get("q").replaceAll(" ", "+")}/${query.get("c")}`;
+    let path = "";
+    if(query.size !== 0) {
+        path = `${query.get("q").replaceAll(" ", "+")}/${query.get("c")}`;
+    }
     /*
     if(query.size !== 0) {
         const getPath = () => {
