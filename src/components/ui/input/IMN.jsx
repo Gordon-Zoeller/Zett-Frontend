@@ -3,7 +3,7 @@ export default function IMN() {
         <>
             <div>
                 <label htmlFor="imn">IMN</label>
-                <input type="number" name="imn" id="imn" />
+                <input type="text" name="imn" id="imn" />
             </div>
         </>
     );
