@@ -22,10 +22,10 @@ function App() {
   const {formRef} = useContext(ProductContext);
   const search = async (e) => {
     e.preventDefault();
-    const plus = e.target.search.value.replaceAll(" ", "+");
-    const separator = e.target.category.value;
+    const query = e.target.search.value.replaceAll(" ", "+");
+    const category = e.target.category.value;
     e.target.search.value = "";
-    navigate(`/${separator}/search?q=${plus}&c=${separator}`);
+    navigate(`/${category}/search?q=${query}&c=${category}`);
   };
   const signout = () => {
     setUser(null);
