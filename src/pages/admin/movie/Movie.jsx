@@ -5,18 +5,13 @@ import { UserContext } from "../../../context/Context";
 import { uploadMovie } from "../../../services/api/movies/uploadMovie";
 import { FaMinus, FaPlus } from "react-icons/fa";
 import UploadBtn from "../../../components/ui/btn/UploadBtn";
+import RunTime from "../../../components/ui/input/RunTime";
+import { plus } from "../../../helpers/Plus";
+import { minus } from "../../../helpers/Minus";
 
 export default function Movie() {
     const [actors, setActors] = useState([]);
     const {user} = useContext(UserContext);
-    const plus = () => {
-        let actor = new Date().getTime();
-        setActors([...actors, actor]);
-    };
-    const minus = (id) => {
-        const actorsUpdated = actors.filter(actor => actor !== id);
-        setActors(actorsUpdated);
-    };
     return (
         <>
             {
@@ -29,7 +24,7 @@ export default function Movie() {
                     <div>
                         <label htmlFor="actor">Actor</label>
                         <input type="text" name="actor" id="actor" />
-                        <button type="button" onClick={plus}>
+                        <button type="button" onClick={() => plus(actors, setActors)}>
                             <FaPlus className="icon"/>
                         </button>
                     </div>
@@ -40,7 +35,7 @@ export default function Movie() {
                                     <div>
                                         <label htmlFor={`actor${index}`}>Actor</label>
                                         <input type="text" name={`actor${index}`} id={`actor${index}`} />
-                                        <button type="button" onClick={() => minus(id)}>
+                                        <button type="button" onClick={() => minus(id, actors, setActors)}>
                                             <FaMinus className="icon"/>
                                         </button>
                                     </div>
@@ -53,10 +48,7 @@ export default function Movie() {
                             <label htmlFor="subtitles">Subtitles</label>
                             <input type="text" name="subtitles" id="subtitles" />
                         </div>
-                        <div>
-                            <label htmlFor="runTime">Run time</label>
-                            <input type="number" name="runTime" id="runTime" />
-                        </div>
+                        <RunTime/>
                         <div>
                             <label htmlFor="mpaa">MPAA rating</label>
                             <input type="text" name="mpaa" id="mpaa" />
