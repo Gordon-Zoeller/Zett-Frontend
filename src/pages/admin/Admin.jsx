@@ -10,7 +10,7 @@ export default function Admin() {
                     <ul>
                         <li><NavLink to="/user/admin/book">Book</NavLink></li>
                         <li><NavLink to="/user/admin/movie">Movie</NavLink></li>
-                        <li></li>
+                        <li><NavLink to="/user/admin/album">Album</NavLink></li>
                     </ul>
                 </ul>
             </nav>
