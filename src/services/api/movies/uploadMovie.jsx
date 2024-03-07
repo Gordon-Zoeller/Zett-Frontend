@@ -1,4 +1,4 @@
-export const uploadMovie = async (e) => {
+export const uploadMovie = async e => {
     e.preventDefault();
     try {
         const movie = new FormData(e.target);
@@ -12,5 +12,5 @@ export const uploadMovie = async (e) => {
         };
     } catch (error) {
         //
-    }
+    };
 };

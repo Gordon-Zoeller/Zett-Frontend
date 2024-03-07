@@ -1,4 +1,4 @@
-export const uploadBook = async (e) => {
+export const uploadBook = async e => {
     e.preventDefault();
     try {
         const book = new FormData(e.target);
