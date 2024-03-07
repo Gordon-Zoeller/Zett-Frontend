@@ -24,7 +24,10 @@ export default function Album() {
                     </div>
                     <ProductInformation>
                         <RunTime/>
-                        <IMN/>
+                        <div>
+                            <label htmlFor="label">Label</label>
+                            <input type="text" name="label" id="label" />
+                        </div>
                     </ProductInformation>
                     <div>
                         <label htmlFor="track">Track</label>
@@ -51,11 +54,15 @@ export default function Album() {
                     <div>
                         <h6>CD</h6>
                     </div>
-                    <Edition/>
+                    <Edition>
+                        <IMN/>
+                    </Edition>
                     <div>
                         <h6>Vinyl</h6>
                     </div>
-                    <Edition/>
+                    <Edition>
+                        <IMN/>
+                    </Edition>
                     <UploadBtn/>
                 </form>
             }
