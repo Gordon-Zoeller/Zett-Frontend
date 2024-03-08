@@ -3,9 +3,11 @@ import { ProductContext } from "../../context/Context";
 import { useLocation } from "react-router-dom";
 import BookCard from "../../components/BookCard";
 import MovieCard from "../../components/MovieCard";
+import AlbumCard from "../../components/AlbumCard";
 import { booksByGenre } from "../../services/api/books/byGenre";
 import { bySearch } from "../../services/api/search/bySearch";
 import { moviesByGenre } from "../../services/api/movies/byGenre";
+import { productsByGenre } from "../../services/api/genres/byGenre";
 
 export default function Products() {
     const {state} = useLocation();
@@ -32,7 +34,7 @@ export default function Products() {
                 break;
                 case "movies": moviesByGenre(state.snake, setProducts);
                 break;
-                default: console.log("hello world");
+                default: productsByGenre(state.snake, setProducts, import.meta.env.VITE_BASE_URL_ALBUMS, import.meta.env.VITE_BY_GENRE);
             };
         } else {
             bySearch(path, setProducts);
@@ -56,6 +58,12 @@ export default function Products() {
                                         <MovieCard product={product}/>
                                     </>
                                 );
+                            } else {
+                                return (
+                                    <>
+                                        <AlbumCard product={product}/>
+                                    </>
+                                );
                             };
                         } else {
                             if(path.endsWith("books")  || state.category === "books") {
@@ -70,8 +78,14 @@ export default function Products() {
                                         <MovieCard product={product}/>
                                     </>
                                 );
+                            } else {
+                                return (
+                                    <>
+                                        <AlbumCard product={product}/>
+                                    </>
+                                );
                             };
-                        }
+                        };
                     })
                 }
             </div>
