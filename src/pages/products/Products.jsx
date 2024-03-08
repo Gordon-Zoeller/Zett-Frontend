@@ -29,13 +29,7 @@ export default function Products() {
     */
     useEffect(() => {
         if(state) {
-            switch(state.category) {
-                case "books": booksByGenre(state.snake, setProducts);
-                break;
-                case "movies": moviesByGenre(state.snake, setProducts);
-                break;
-                default: productsByGenre(state.snake, setProducts, import.meta.env.VITE_BASE_URL_ALBUMS, import.meta.env.VITE_BY_GENRE);
-            };
+            productsByGenre(state, setProducts);
         } else {
             bySearch(path, setProducts);
         };
