@@ -3,10 +3,10 @@ import { UserContext } from "../../../context/Context";
 import UploadBtn from "../../../components/ui/btn/UploadBtn";
 import Pages from "../../../components/ui/input/Pages";
 import Edition from "../../../components/Edition";
-import { uploadBook } from "../../../services/api/books/uploadBook";
 import Publisher from "../../../components/ui/input/Publisher";
 import ISBN from "../../../components/ui/input/ISBN";
 import ProductInformation from "../../../components/ProductInformation";
+import { uploadProduct } from "../../../services/api/upload/uploadProduct";
 
 export default function Book() {
     const {user} = useContext(UserContext);
@@ -14,7 +14,7 @@ export default function Book() {
         <>
             {
                 user?.role === "admin" &&
-                <form onSubmit={uploadBook}>
+                <form onSubmit={(e) => uploadProduct(e, "book")}>
                     <div>
                         <label htmlFor="author">Author</label>
                         <input type="text" name="author" id="author" />

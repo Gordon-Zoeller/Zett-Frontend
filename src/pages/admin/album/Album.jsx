@@ -7,8 +7,8 @@ import { UserContext } from "../../../context/Context";
 import { plus } from "../../../helpers/Plus";
 import { minus } from "../../../helpers/Minus";
 import IMN from "../../../components/ui/input/IMN";
-import { uploadAlbum } from "../../../services/api/albums/uploadAlbum";
 import UploadBtn from "../../../components/ui/btn/UploadBtn";
+import { uploadProduct } from "../../../services/api/upload/uploadProduct";
 
 export default function Album() {
     const [tracks, setTracks] = useState([]);
@@ -17,7 +17,7 @@ export default function Album() {
         <>
             {
                 user?.role === "admin" &&
-                <form onSubmit={uploadAlbum}>
+                <form onSubmit={(e) => uploadProduct(e, "album")}>
                     <div>
                         <label htmlFor="artist">Artist</label>
                         <input type="text" name="artist" id="artist" />

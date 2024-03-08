@@ -2,12 +2,12 @@ import { useContext, useState } from "react";
 import Edition from "../../../components/Edition";
 import ProductInformation from "../../../components/ProductInformation";
 import { UserContext } from "../../../context/Context";
-import { uploadMovie } from "../../../services/api/movies/uploadMovie";
 import { FaMinus, FaPlus } from "react-icons/fa";
 import UploadBtn from "../../../components/ui/btn/UploadBtn";
 import RunTime from "../../../components/ui/input/RunTime";
 import { plus } from "../../../helpers/Plus";
 import { minus } from "../../../helpers/Minus";
+import { uploadProduct } from "../../../services/api/upload/uploadProduct";
 
 export default function Movie() {
     const [actors, setActors] = useState([]);
@@ -16,7 +16,7 @@ export default function Movie() {
         <>
             {
                 user?.role === "admin" &&
-                <form onSubmit={uploadMovie}>
+                <form onSubmit={(e) => uploadProduct(e, "movie")}>
                     <div>
                         <label htmlFor="director">Director</label>
                         <input type="text" name="director" id="director" />
