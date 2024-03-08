@@ -4,9 +4,7 @@ import { useLocation } from "react-router-dom";
 import BookCard from "../../components/BookCard";
 import MovieCard from "../../components/MovieCard";
 import AlbumCard from "../../components/AlbumCard";
-import { booksByGenre } from "../../services/api/books/byGenre";
 import { bySearch } from "../../services/api/search/bySearch";
-import { moviesByGenre } from "../../services/api/movies/byGenre";
 import { productsByGenre } from "../../services/api/genres/byGenre";
 
 export default function Products() {
