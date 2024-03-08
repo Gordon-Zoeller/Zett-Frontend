@@ -6,7 +6,7 @@ export const getGenres = async (setGenres, props) => {
                 break;
             case "movies": response = await fetch(`${import.meta.env.VITE_BASE_URL_GENRES}${import.meta.env.VITE_GENRES_MOVIES}`);
                 break;
-            default: {};
+            default: response = await fetch(`${import.meta.env.VITE_BASE_URL_GENRES}${import.meta.env.VITE_GENRES_ALBUMS}`);
         };
         if(response.ok) {
             const data = await response.json();
