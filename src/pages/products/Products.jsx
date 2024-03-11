@@ -50,10 +50,24 @@ export default function Products() {
                                         <MovieCard product={product}/>
                                     </>
                                 );
-                            } else {
+                            } else if(path.endsWith("albums")) {
                                 return (
                                     <>
                                         <AlbumCard product={product}/>
+                                    </>
+                                );
+                            } else {
+                                return (
+                                    <>
+                                        {
+                                            product?.edition?.hardcover && <BookCard product={product}/>
+                                        }
+                                        {
+                                            product?.edition?.dvd && <MovieCard product={product}/>
+                                        }
+                                        {
+                                            product?.edition?.cd && <AlbumCard product={product}/>
+                                        }
                                     </>
                                 );
                             };
@@ -70,10 +84,24 @@ export default function Products() {
                                         <MovieCard product={product}/>
                                     </>
                                 );
-                            } else {
+                            } else if(path.endsWith("albums")) {
                                 return (
                                     <>
                                         <AlbumCard product={product}/>
+                                    </>
+                                );
+                            } else {
+                                return (
+                                    <>
+                                        {
+                                            product?.edition?.hardcover && <BookCard product={product}/>
+                                        }
+                                        {
+                                            product?.edition?.dvd && <MovieCard product={product}/>
+                                        }
+                                        {
+                                            product?.edition?.cd && <AlbumCard product={product}/>
+                                        }
                                     </>
                                 );
                             };
