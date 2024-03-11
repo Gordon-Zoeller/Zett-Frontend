@@ -7,9 +7,13 @@ export default function ProductsContainer({children}) {
     useEffect(() => {
         if(window.location.href.includes("/books/search?q=")) {
             formRef.current.value = "books";
-        } else if(window.location.href.includes("/movies/search?")) {
-            formRef.current.value = "movies"
-        }
+        } else if(window.location.href.includes("/movies/search?q=")) {
+            formRef.current.value = "movies";
+        } else if(window.location.href.includes("/albums/search?q=")) {
+            formRef.current.value = "albums";
+        } else {
+            formRef.current.value = "all";
+        };
     }, []);
     return (
         <>
