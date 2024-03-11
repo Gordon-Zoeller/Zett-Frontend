@@ -16,6 +16,7 @@ import Book from './pages/admin/book/Book';
 import Movie from "./pages/admin/movie/Movie";
 import NotFound from "./pages/notFound/NotFound";
 import Album from './pages/admin/album/Album';
+import Product from './pages/product/Product';
 
 function App() {
   const navigate = useNavigate();
@@ -34,7 +35,7 @@ function App() {
   };
   return (
     <>
-      <header key="header">
+      <header>
         <nav>
           <ul>
             <li><NavLink to="/">Logo</NavLink></li>
@@ -82,20 +83,23 @@ function App() {
           </ul>
         </nav>
       </header>
-      <main key="main">
+      <main>
         <GenresContainer>
           <Routes>
             <Route path="/" element={<Home/>}/>
             <Route path="/books" element={<Genres category="books"/>}>
               <Route path="/books/genre/:genre" element={<Products/>}/>
+              <Route path="/books/product/:product" element={<Product/>}/>
               <Route path="/books/:search" element={<Products/>}/>
             </Route>
             <Route path="/movies" element={<Genres category="movies"/>}>
               <Route path="/movies/genre/:genre" element={<Products/>}/>
+              <Route path="/movies/product/:product" element={<Product/>}/>
               <Route path="/movies/:search" element={<Products/>}/>
             </Route>
             <Route path="/albums" element={<Genres category="albums"/>}>
               <Route path="/albums/genre/:genre" element={<Products/>}/>
+              <Route path="/albums/product/:product" element={<Product/>}/>
               <Route path="/albums/:search" element={<Products/>}/>
             </Route>
             <Route path="/all/:search" element={<Products/>}/>
