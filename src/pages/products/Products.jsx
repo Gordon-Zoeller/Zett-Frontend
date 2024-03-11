@@ -13,7 +13,7 @@ export default function Products() {
     const query = new URLSearchParams(window.location.search);
     let path = "";
     if(query.size !== 0) {
-        path = `${query.get("q").replaceAll(" ", "+")}/${query.get("c")}`;
+        path = `${query.get("q").replaceAll(" ", "_")}/${query.get("c")}`;
     }
     /*
     if(query.size !== 0) {
