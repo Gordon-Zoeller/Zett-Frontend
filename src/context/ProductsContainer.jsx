@@ -3,6 +3,7 @@ import { ProductContext } from "./Context";
 
 export default function ProductsContainer({children}) {
     const [products, setProducts] = useState([]);
+    const [product, setProduct] = useState({});
     const formRef = useRef();
     useEffect(() => {
         if(window.location.href.includes("/books/search?q=")) {
@@ -19,6 +20,7 @@ export default function ProductsContainer({children}) {
         <>
             <ProductContext.Provider value={{
                 products, setProducts,
+                product, setProduct,
                 formRef
             }}>
                 {children}
