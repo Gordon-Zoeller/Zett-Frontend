@@ -95,6 +95,7 @@ function App() {
             </Route>
             <Route path="/albums" element={<Genres category="albums"/>}>
               <Route path="/albums/genre/:genre" element={<Products/>}/>
+              <Route path="/albums/:search" element={<Products/>}/>
             </Route>
             <Route path="/signup" element={<SignUp/>}/>
             <Route path="/signin" element={<SignIn/>}/>
