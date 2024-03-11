@@ -44,6 +44,7 @@ function App() {
               <search>
                 <form onSubmit={search}>
                   <select ref={formRef} name="category" id="category">
+                    <option value="all">All</option>
                     <option value="books">Books</option>
                     <option value="movies">Movies</option>
                     <option value="albums">Albums</option>
@@ -97,6 +98,7 @@ function App() {
               <Route path="/albums/genre/:genre" element={<Products/>}/>
               <Route path="/albums/:search" element={<Products/>}/>
             </Route>
+            <Route path="/all/:search" element={<Products/>}/>
             <Route path="/signup" element={<SignUp/>}/>
             <Route path="/signin" element={<SignIn/>}/>
             <Route path="/user" element={<User/>}>
