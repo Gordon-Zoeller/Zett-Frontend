@@ -14,35 +14,38 @@ export default function ProductCard({product}) {
         <>
             <div>
                 {
-                    product.author && <Author author={product.author}/>
+                    product.category === "books" &&
+                    <>
+                        <Author author={product.author}/>
+                        <Hardcover/>
+                        <Price price={product?.edition?.one?.price}/>
+                        <hr />
+                        <Paperback/>
+                        <Price price={product?.edition?.two?.price}/>
+                    </>
                 }
                 {
-                    product.artist && <Artist artist={product.artist}/>
+                    product.category === "movies" &&
+                    <>
+                        <Director director={product.director}/>
+                        <DVD/>
+                        <Price price={product?.edition?.one?.price}/>
+                        <hr />
+                        <BlueRay/>
+                        <Price price={product?.edition?.two?.price}/>
+                    </>
                 }
                 {
-                    product.director && <Director director={product.director}/>
+                    product.category === "albums" &&
+                    <>
+                        <Artist artist={product.artist}/>
+                        <CD/>
+                        <Price price={product?.edition?.one?.price}/>
+                        <hr />
+                        <Vinyl/>
+                        <Price price={product?.edition?.two?.price}/>
+                    </>
                 }
-                {
-                    product.category === "book" && <Hardcover/>
-                }
-                {
-                    product.category === "movie" && <DVD/>
-                }
-                {
-                    product.category === "album" && <CD/>
-                }
-                <Price price={product?.edition?.one?.price}/>
-                <hr />
-                {
-                    product.category === "book" && <Paperback/>
-                }
-                {
-                    product.category === "movie" && <BlueRay/>
-                }
-                {
-                    product.category === "album" && <Vinyl/>
-                }
-                <Price price={product?.edition?.two?.price}/>
             </div>
         </>
     );
