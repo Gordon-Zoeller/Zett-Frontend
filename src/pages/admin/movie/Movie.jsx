@@ -8,6 +8,9 @@ import RunTime from "../../../components/ui/input/RunTime";
 import { plus } from "../../../helpers/Plus";
 import { minus } from "../../../helpers/Minus";
 import { uploadProduct } from "../../../services/api/upload/uploadProduct";
+import IMN from "../../../components/ui/input/IMN";
+import DVD from "../../../components/ui/render/DVD";
+import BlueRay from "../../../components/ui/render/BlueRay";
 
 export default function Movie() {
     const [actors, setActors] = useState([]);
@@ -62,14 +65,14 @@ export default function Movie() {
                             <input type="text" name="distributor" id="distributor" />
                         </div>
                     </ProductInformation>
-                    <div>
-                        <h6>DVD</h6>
-                    </div>
-                    <Edition/>
-                    <div>
-                        <h6>Blue-ray</h6>
-                    </div>
-                    <Edition/>
+                    <DVD/>
+                    <Edition>
+                        <IMN/>
+                    </Edition>
+                    <BlueRay/>
+                    <Edition>
+                        <IMN/>
+                    </Edition>
                     <UploadBtn/>
                 </form>
             }

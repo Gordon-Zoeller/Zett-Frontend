@@ -1,15 +1,15 @@
 import { useContext, useEffect } from "react";
 import { ProductContext } from "../../context/Context";
-import { useLocation } from "react-router-dom";
-import BookCard from "../../components/BookCard";
-import MovieCard from "../../components/MovieCard";
-import AlbumCard from "../../components/AlbumCard";
+import { Link, useLocation } from "react-router-dom";
 import { bySearch } from "../../services/api/search/bySearch";
 import { productsByGenre } from "../../services/api/genres/byGenre";
+import ProductCard from "../../components/ProductCard";
+import Cover from "../../components/ui/render/Cover";
+import Title from "../../components/ui/render/Title";
 
 export default function Products() {
     const {state} = useLocation();
-    const {products, setProducts} = useContext(ProductContext);
+    const {products, setProducts, setProduct} = useContext(ProductContext);
     const query = new URLSearchParams(window.location.search);
     let path = "";
     if(query.size !== 0) {
@@ -37,75 +37,17 @@ export default function Products() {
             <div>
                 {
                     products.map(product => {
-                        if(state === null) {
-                            if(path.endsWith("books")) {
-                                return (
-                                    <>
-                                        <BookCard product={product}/>
-                                    </>
-                                );
-                            } else if(path.endsWith("movies")) {
-                                return (
-                                    <>
-                                        <MovieCard product={product}/>
-                                    </>
-                                );
-                            } else if(path.endsWith("albums")) {
-                                return (
-                                    <>
-                                        <AlbumCard product={product}/>
-                                    </>
-                                );
-                            } else {
-                                return (
-                                    <>
-                                        {
-                                            product?.edition?.hardcover && <BookCard product={product}/>
-                                        }
-                                        {
-                                            product?.edition?.dvd && <MovieCard product={product}/>
-                                        }
-                                        {
-                                            product?.edition?.cd && <AlbumCard product={product}/>
-                                        }
-                                    </>
-                                );
-                            };
-                        } else {
-                            if(path.endsWith("books")  || state.category === "books") {
-                                return (
-                                    <>
-                                        <BookCard product={product}/>
-                                    </>
-                                );
-                            } else if(path.endsWith("movies") || state.category === "movies") {
-                                return (
-                                    <>
-                                        <MovieCard product={product}/>
-                                    </>
-                                );
-                            } else if(path.endsWith("albums")) {
-                                return (
-                                    <>
-                                        <AlbumCard product={product}/>
-                                    </>
-                                );
-                            } else {
-                                return (
-                                    <>
-                                        {
-                                            product?.edition?.hardcover && <BookCard product={product}/>
-                                        }
-                                        {
-                                            product?.edition?.dvd && <MovieCard product={product}/>
-                                        }
-                                        {
-                                            product?.edition?.cd && <AlbumCard product={product}/>
-                                        }
-                                    </>
-                                );
-                            };
-                        };
+                        return (
+                            <>
+                                <Link to={`/albums/product/${product.title}`} onClick={() => setProduct(product)}>
+                                    <Cover cover={product?.edition?.one?.image?.thumbnail}/>
+                                </Link>
+                                <Link to={`/albums/product/${product.title}`} onClick={() => setProduct(product)}>
+                                    <Title title={product.title}/>
+                                </Link>
+                                <ProductCard product={product}/>
+                            </>
+                        );
                     })
                 }
             </div>

@@ -7,6 +7,8 @@ import Publisher from "../../../components/ui/input/Publisher";
 import ISBN from "../../../components/ui/input/ISBN";
 import ProductInformation from "../../../components/ProductInformation";
 import { uploadProduct } from "../../../services/api/upload/uploadProduct";
+import Paperback from "../../../components/ui/render/Paperback";
+import Hardcover from "../../../components/ui/render/Hardcover";
 
 export default function Book() {
     const {user} = useContext(UserContext);
@@ -20,17 +22,13 @@ export default function Book() {
                         <input type="text" name="author" id="author" />
                     </div>
                     <ProductInformation/>
-                    <div>
-                        <h6>Hardcover</h6>
-                    </div>
+                    <Hardcover/>
                     <Edition>
                         <Pages/>
                         <Publisher/>
                         <ISBN/>
                     </Edition>
-                    <div>
-                        <h6>Paperback</h6>
-                    </div>
+                    <Paperback/>
                     <Edition>
                         <Pages/>
                         <Publisher/>

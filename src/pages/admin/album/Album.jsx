@@ -9,6 +9,8 @@ import { minus } from "../../../helpers/Minus";
 import IMN from "../../../components/ui/input/IMN";
 import UploadBtn from "../../../components/ui/btn/UploadBtn";
 import { uploadProduct } from "../../../services/api/upload/uploadProduct";
+import CD from "../../../components/ui/render/CD";
+import Vinyl from "../../../components/ui/render/Vinyl";
 
 export default function Album() {
     const [tracks, setTracks] = useState([]);
@@ -51,15 +53,11 @@ export default function Album() {
                             );
                         })
                     }
-                    <div>
-                        <h6>CD</h6>
-                    </div>
+                    <CD/>
                     <Edition>
                         <IMN/>
                     </Edition>
-                    <div>
-                        <h6>Vinyl</h6>
-                    </div>
+                    <Vinyl/>
                     <Edition>
                         <IMN/>
                     </Edition>
