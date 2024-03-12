@@ -39,10 +39,10 @@ export default function Products() {
                     products.map(product => {
                         return (
                             <>
-                                <Link to={`/${product.category}/product/${product.title}`} onClick={() => setProduct(product)}>
+                                <Link to={`/${product.category}/product/${product.title}`} state="one" onClick={() => setProduct(product)}>
                                     <Cover cover={product?.edition?.one?.image?.thumbnail}/>
                                 </Link>
-                                <Link to={`/${product.category}/product/${product.title}`} onClick={() => setProduct(product)}>
+                                <Link to={`/${product.category}/product/${product.title}`} state="one" onClick={() => setProduct(product)}>
                                     <Title title={product.title}/>
                                 </Link>
                                 <ProductCard product={product}/>
