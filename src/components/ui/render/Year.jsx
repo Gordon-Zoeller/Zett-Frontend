@@ -1,7 +1,7 @@
-export default function Year(props) {
+export default function Year({year}) {
     return (
         <>
-            <p>{props.year}</p>
+            <p>{year}</p>
         </>
     );
 };
