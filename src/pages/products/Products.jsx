@@ -8,7 +8,7 @@ import Cover from "../../components/ui/render/Cover";
 import Title from "../../components/ui/render/Title";
 
 export default function Products() {
-    const {state} = useLocation();
+    const location = useLocation();
     const {products, setProducts, setProduct} = useContext(ProductContext);
     const query = new URLSearchParams(window.location.search);
     let path = "";
@@ -26,12 +26,12 @@ export default function Products() {
     };
     */
     useEffect(() => {
-        if(state) {
-            productsByGenre(state, setProducts);
+        if(location.state) {
+            productsByGenre(location.state, setProducts);
         } else {
             bySearch(path, setProducts);
         };
-    }, [state, path]);
+    }, [location.state, path]);
     return (
         <>
             <div>
