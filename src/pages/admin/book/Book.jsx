@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { UserContext } from "../../../context/Context";
 import UploadBtn from "../../../components/ui/btn/UploadBtn";
 import Pages from "../../../components/ui/input/Pages";
-import Edition from "../../../components/EditionInput";
+import EditionInput from "../../../components/EditionInput";
 import Publisher from "../../../components/ui/input/Publisher";
 import ISBN from "../../../components/ui/input/ISBN";
 import ProductInformation from "../../../components/ProductInformation";
@@ -23,17 +23,17 @@ export default function Book() {
                     </div>
                     <ProductInformation/>
                     <Hardcover/>
-                    <Edition>
+                    <EditionInput>
                         <Pages/>
                         <Publisher/>
                         <ISBN/>
-                    </Edition>
+                    </EditionInput>
                     <Paperback/>
-                    <Edition>
+                    <EditionInput>
                         <Pages/>
                         <Publisher/>
                         <ISBN/>
-                    </Edition>
+                    </EditionInput>
                     <UploadBtn/>
                 </form>
             }

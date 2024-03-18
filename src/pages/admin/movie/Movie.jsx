@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import Edition from "../../../components/EditionInput";
+import EditionInput from "../../../components/EditionInput";
 import ProductInformation from "../../../components/ProductInformation";
 import { UserContext } from "../../../context/Context";
 import { FaMinus, FaPlus } from "react-icons/fa";
@@ -66,13 +66,13 @@ export default function Movie() {
                         </div>
                     </ProductInformation>
                     <DVD/>
-                    <Edition>
+                    <EditionInput>
                         <IMN/>
-                    </Edition>
+                    </EditionInput>
                     <BlueRay/>
-                    <Edition>
+                    <EditionInput>
                         <IMN/>
-                    </Edition>
+                    </EditionInput>
                     <UploadBtn/>
                 </form>
             }

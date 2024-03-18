@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { FaMinus, FaPlus } from "react-icons/fa";
-import Edition from "../../../components/EditionInput";
+import EditionInput from "../../../components/EditionInput";
 import ProductInformation from "../../../components/ProductInformation";
 import RunTime from "../../../components/ui/input/RunTime";
 import { UserContext } from "../../../context/Context";
@@ -54,13 +54,13 @@ export default function Album() {
                         })
                     }
                     <CD/>
-                    <Edition>
+                    <EditionInput>
                         <IMN/>
-                    </Edition>
+                    </EditionInput>
                     <Vinyl/>
-                    <Edition>
+                    <EditionInput>
                         <IMN/>
-                    </Edition>
+                    </EditionInput>
                     <UploadBtn/>
                 </form>
             }
