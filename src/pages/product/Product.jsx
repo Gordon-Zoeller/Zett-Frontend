@@ -7,6 +7,7 @@ import RunTime from "../../components/ui/render/RunTime";
 import Year from "../../components/ui/render/Year";
 import IMN from "../../components/ui/render/IMN";
 import { useLocation } from "react-router-dom";
+import BookCard from "../../components/BookCard";
 
 export default function Product() {
     const {product} = useContext(ProductContext);
@@ -14,8 +15,13 @@ export default function Product() {
     return (
         <>
             <div>
-                {state === "one" && <Cover cover={product?.edition?.one?.image?.thumbnail}/>}
-                {state === "two" && <Cover cover={product?.edition?.two?.image?.thumbnail}/>}
+                {
+                    state === "one" ? (
+                        <Cover cover={product?.edition?.one?.image?.thumbnail}/>
+                    ) : (
+                        <Cover cover={product?.edition?.two?.image?.thumbnail}/>
+                    )
+                }
                 <Title  title={product.title}/>
                 <div>
                     <p>{product.genre}</p>
@@ -25,74 +31,79 @@ export default function Product() {
                 </div>
                 <ProductCard product={product}/>
                 {
-                    (product.category === "books" && state === "one") &&
-                    <>
-                        <div>
-                            <p>{product?.edition?.one?.pages}</p>
-                            <p>{product?.edition?.one?.publisher}</p>
-                            <Year year={product?.edition?.one?.year}/>
-                            <p>{product?.edition?.one?.ISBN}</p>
-                        </div>
-                    </>
+                    product.category === "books" &&
+                    (
+                        state === "one" ? (
+                            <>
+                                <BookCard data={{
+                                        pages: product?.edition?.one?.pages,
+                                        publisher: product?.edition?.one?.publisher,
+                                        isbn: product?.edition?.one?.ISBN
+                                    }}>
+                                    <Year year={product?.edition?.one?.year}/>
+                                </BookCard>
+                            </>
+                        ) : (
+                            <>
+                                <BookCard data={{
+                                        pages: product?.edition?.two?.pages,
+                                        publisher: product?.edition?.two?.publisher,
+                                        isbn: product?.edition?.two?.ISBN
+                                    }}>
+                                    <Year year={product?.edition?.two?.year}/>
+                                </BookCard>
+                            </>
+                        )
+                    )
                 }
                 {
-                    (product.category === "books" && state === "two") &&
+                    product.category === "movies" &&
                     <>
                         <div>
-                            <p>{product?.edition?.two?.pages}</p>
-                            <p>{product?.edition?.two?.publisher}</p>
-                            <Year year={product?.edition?.two?.year}/>
-                            <p>{product?.edition?.two?.ISBN}</p>
-                        </div>
-                    </>
-                }
-                {
-                    (product.category === "movies" &&  state === "one") &&
-                    <>
-                        <div>
-                            <p>{product.subTitles}</p>
+                            <p>{product.subtitles}</p>
                             <p>{product.mpaa}</p>
                             <p>{product.country}</p>
                             <p>{product.distributor}</p>
                             <RunTime runTime={product.runTime}/>
-                            <Year year={product?.edition?.one?.year}/>
-                            <IMN imn={product?.edition?.one?.imn}/>
                         </div>
-                    </>
-                }
-                {
-                    (product.category === "movies" &&  state === "two") &&
-                    <>
                         <div>
-                            <p>{product.subTitles}</p>
-                            <p>{product.mpaa}</p>
-                            <p>{product.country}</p>
-                            <p>{product.distributor}</p>
-                            <RunTime runTime={product.runTime}/>
-                            <Year year={product?.edition?.two?.year}/>
-                            <IMN imn={product?.edition?.two?.imn}/>
+                            {
+                                state === "one" ? (
+                                    <>
+                                        <IMN imn={product?.edition?.one?.imn}/>
+                                        <Year year={product?.edition?.one?.year}/>
+                                    </>
+                                ) : (
+                                    <>
+                                        <IMN imn={product?.edition?.two?.imn}/>
+                                        <Year year={product?.edition?.two?.year}/>
+                                    </>
+                                )
+                            }
                         </div>
                     </>
                 }
                 {
-                    (product.category === "albums" && state === "one") &&
-                    <>
-                        <div>
-                            <p>{product.label}</p>
-                            <RunTime runTime={product.runTime}/>
-                            <Year year={product?.edition?.one?.year}/>
-                            <IMN imn={product?.edition?.one?.imn}/>
-                        </div>
-                    </>
-                }
-                {
-                    (product.category === "albums" && state === "two") &&
+                    product.category === "albums" &&
                     <>
                         <div>
                             <p>{product.label}</p>
                             <RunTime runTime={product.runTime}/>
-                            <Year year={product?.edition?.two?.year}/>
-                            <IMN imn={product?.edition?.two?.imn}/>
+                        </div>
+                        <div>
+                            {
+                                state === "one" ? (
+                                    <>
+                                        <Year year={product?.edition?.one?.year}/>
+                                        <IMN imn={product?.edition?.one?.imn}/>
+                                    </>
+                                ) : (
+                                    <>
+                                        <Year year={product?.edition?.two?.year}/>
+                                        <IMN imn={product?.edition?.two?.imn}/>
+                                    </>
+                                )
+                            }
                         </div>
                     </>
                 }
