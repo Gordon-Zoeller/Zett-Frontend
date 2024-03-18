@@ -1,4 +1,4 @@
-export const productsByGenre = async (state, setProducts) => {
+export const byGenre = async (state, setProducts) => {
     try {
         let response;
         switch(state.category) {
