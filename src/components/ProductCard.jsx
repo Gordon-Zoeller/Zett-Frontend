@@ -1,4 +1,3 @@
-import Price from "./ui/render/Price";
 import Author from "./ui/render/Author";
 import Artist from "./ui/render/Artist";
 import Director from "./ui/render/Director";
@@ -8,9 +7,9 @@ import DVD from "./ui/render/DVD";
 import BlueRay from "./ui/render/BlueRay";
 import CD from "./ui/render/CD";
 import Vinyl from "./ui/render/Vinyl";
-import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { ProductContext } from "../context/Context";
+import EditionCard from "./EditionCard";
 
 export default function ProductCard({product}) {
     const {setProduct} = useContext(ProductContext);
@@ -21,46 +20,40 @@ export default function ProductCard({product}) {
                     product.category === "books" &&
                     <>
                         <Author author={product.author}/>
-                        <Link to={`/${product.category}/product/${product.title}`} state="one" onClick={() => setProduct(product)}>
+                        <EditionCard product={product} price={product?.edition?.one?.price} edition="one">
                             <Hardcover/>
-                            <Price price={product?.edition?.one?.price}/>
-                        </Link>
+                        </EditionCard>
                         <hr />
-                        <Link to={`/${product.category}/product/${product.title}`} state="two" onClick={() => setProduct(product)}>
+                        <EditionCard product={product} price={product?.edition?.two?.price} edition="two">
                             <Paperback/>
-                            <Price price={product?.edition?.two?.price}/>
-                        </Link>
+                        </EditionCard>
                     </>
                 }
                 {
                     product.category === "movies" &&
                     <>
                         <Director director={product.director}/>
-                        <Link to={`/${product.category}/product/${product.title}`} state="one" onClick={() => setProduct(product)}>
+                        <EditionCard product={product} price={product?.edition?.one?.price} edition="one">
                             <DVD/>
-                            <Price price={product?.edition?.one?.price}/>
-                        </Link>
+                        </EditionCard>
                         <hr />
-                        <Link to={`/${product.category}/product/${product.title}`} state="two" onClick={() => setProduct(product)}>
+                        <EditionCard product={product} price={product?.edition?.two?.price} edition="two">
                             <BlueRay/>
-                            <Price price={product?.edition?.two?.price}/>
-                        </Link>
+                        </EditionCard>
                     </>
                 }
                 {
                     product.category === "albums" &&
                     <>
                         <Artist artist={product.artist}/>
-                        <Link to={`/${product.category}/product/${product.title}`} state="one" onClick={() => setProduct(product)}>
+                        <EditionCard product={product} price={product?.edition?.one?.price} edition="one">
                             <CD/>
-                            <Price price={product?.edition?.one?.price}/>
-                        </Link>
+                        </EditionCard>
                         
                         <hr />
-                        <Link to={`/${product.category}/product/${product.title}`} state="two" onClick={() => setProduct(product)}>
+                        <EditionCard product={product} price={product?.edition?.two?.price} edition="two">
                             <Vinyl/>
-                            <Price price={product?.edition?.two?.price}/>
-                        </Link>
+                        </EditionCard>
                     </>
                 }
             </div>
