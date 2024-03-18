@@ -7,12 +7,9 @@ import DVD from "./ui/render/DVD";
 import BlueRay from "./ui/render/BlueRay";
 import CD from "./ui/render/CD";
 import Vinyl from "./ui/render/Vinyl";
-import { useContext } from "react";
-import { ProductContext } from "../context/Context";
 import EditionCard from "./EditionCard";
 
 export default function ProductCard({product}) {
-    const {setProduct} = useContext(ProductContext);
     return (
         <>
             <div>
