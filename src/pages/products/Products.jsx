@@ -1,16 +1,14 @@
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { ProductContext } from "../../context/Context";
-import { Link, useLocation } from "react-router-dom";
-import { bySearch } from "../../services/api/search/bySearch";
-import { productsByGenre } from "../../services/api/genres/byGenre";
+import { Link } from "react-router-dom";
 import ProductCard from "../../components/ProductCard";
 import Cover from "../../components/ui/render/Cover";
 import Title from "../../components/ui/render/Title";
 import { urlTitle } from "../../helpers/UrlTitle";
+import { useProducts } from "../../hooks/useProducts";
 
 export default function Products() {
-    const location = useLocation();
-    const {products, setProducts, setProduct} = useContext(ProductContext);
+    const {products, setProduct} = useContext(ProductContext);
     const query = new URLSearchParams(window.location.search);
     let path = "";
     if(query.size !== 0) {
@@ -26,13 +24,7 @@ export default function Products() {
         path = getPath();
     };
     */
-    useEffect(() => {
-        if(location.state) {
-            productsByGenre(location.state, setProducts);
-        } else {
-            bySearch(path, setProducts);
-        };
-    }, [location.state, path]);
+    useProducts(path);
     return (
         <>
             <div>
