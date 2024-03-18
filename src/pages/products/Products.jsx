@@ -6,6 +6,7 @@ import { productsByGenre } from "../../services/api/genres/byGenre";
 import ProductCard from "../../components/ProductCard";
 import Cover from "../../components/ui/render/Cover";
 import Title from "../../components/ui/render/Title";
+import { urlTitle } from "../../helpers/UrlTitle";
 
 export default function Products() {
     const location = useLocation();
@@ -39,10 +40,10 @@ export default function Products() {
                     products.map(product => {
                         return (
                             <>
-                                <Link to={`/${product.category}/product/${product.title}`} state="one" onClick={() => setProduct(product)}>
+                                <Link to={`/${product.category}/product/${urlTitle(product.title)}`} state="one" onClick={() => setProduct(product)}>
                                     <Cover cover={product?.edition?.one?.image?.thumbnail}/>
                                 </Link>
-                                <Link to={`/${product.category}/product/${product.title}`} state="one" onClick={() => setProduct(product)}>
+                                <Link to={`/${product.category}/product/${urlTitle(product.title)}`} state="one" onClick={() => setProduct(product)}>
                                     <Title title={product.title}/>
                                 </Link>
                                 <ProductCard product={product}/>
