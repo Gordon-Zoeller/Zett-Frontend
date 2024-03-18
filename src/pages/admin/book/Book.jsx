@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { UserContext } from "../../../context/Context";
 import UploadBtn from "../../../components/ui/btn/UploadBtn";
 import Pages from "../../../components/ui/input/Pages";
-import Edition from "../../../components/Edition";
+import Edition from "../../../components/EditionInput";
 import Publisher from "../../../components/ui/input/Publisher";
 import ISBN from "../../../components/ui/input/ISBN";
 import ProductInformation from "../../../components/ProductInformation";

@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import Edition from "../../../components/Edition";
+import Edition from "../../../components/EditionInput";
 import ProductInformation from "../../../components/ProductInformation";
 import { UserContext } from "../../../context/Context";
 import { FaMinus, FaPlus } from "react-icons/fa";

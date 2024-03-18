@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import { FaMinus, FaPlus } from "react-icons/fa";
-import Edition from "../../../components/Edition";
+import Edition from "../../../components/EditionInput";
 import ProductInformation from "../../../components/ProductInformation";
 import RunTime from "../../../components/ui/input/RunTime";
 import { UserContext } from "../../../context/Context";
