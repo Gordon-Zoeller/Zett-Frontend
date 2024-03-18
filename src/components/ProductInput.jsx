@@ -3,7 +3,7 @@ import Genre from "./ui/input/Genre";
 import Language from "./ui/input/Language";
 import Title from "./ui/input/Title";
 
-export default function ProductInformation({children}) {
+export default function ProductInput({children}) {
     return (
         <>
             <Title/>

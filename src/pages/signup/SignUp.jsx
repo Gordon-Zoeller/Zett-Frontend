@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import ContinueBtn from "../../components/ui/btn/ContinueBtn";
 import { UserContext } from "../../context/Context";
-import SignInInformation from "../../components/SignInInformation";
+import SignInInput from "../../components/SignInInput";
 import { signup } from "../../services/api/user/SignUp";
 
 export default function SignUp() {
@@ -19,7 +19,7 @@ export default function SignUp() {
                     <label htmlFor="lastName">Last Name</label>
                     <input type="text" name="lastName" id="lastName" />
                 </div>
-                <SignInInformation/>
+                <SignInInput/>
                 <div>
                     <label htmlFor="re-enter">Re-enter password</label>
                     <input type="password" name="reEnter" id="reEnter" />

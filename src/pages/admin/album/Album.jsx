@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import { FaMinus, FaPlus } from "react-icons/fa";
 import EditionInput from "../../../components/EditionInput";
-import ProductInformation from "../../../components/ProductInformation";
+import ProductInput from "../../../components/ProductInput";
 import RunTime from "../../../components/ui/input/RunTime";
 import { UserContext } from "../../../context/Context";
 import { plus } from "../../../helpers/Plus";
@@ -24,13 +24,13 @@ export default function Album() {
                         <label htmlFor="artist">Artist</label>
                         <input type="text" name="artist" id="artist" />
                     </div>
-                    <ProductInformation>
+                    <ProductInput>
                         <RunTime/>
                         <div>
                             <label htmlFor="label">Label</label>
                             <input type="text" name="label" id="label" />
                         </div>
-                    </ProductInformation>
+                    </ProductInput>
                     <div>
                         <label htmlFor="track">Track</label>
                         <input type="text" name="track" id="track" />

@@ -1,6 +1,6 @@
 import { useContext, useState } from "react";
 import EditionInput from "../../../components/EditionInput";
-import ProductInformation from "../../../components/ProductInformation";
+import ProductInput from "../../../components/ProductInput";
 import { UserContext } from "../../../context/Context";
 import { FaMinus, FaPlus } from "react-icons/fa";
 import UploadBtn from "../../../components/ui/btn/UploadBtn";
@@ -46,7 +46,7 @@ export default function Movie() {
                             );
                         })
                     }
-                    <ProductInformation>
+                    <ProductInput>
                         <div>
                             <label htmlFor="subtitles">Subtitles</label>
                             <input type="text" name="subtitles" id="subtitles" />
@@ -64,7 +64,7 @@ export default function Movie() {
                             <label htmlFor="distributor">Distributor</label>
                             <input type="text" name="distributor" id="distributor" />
                         </div>
-                    </ProductInformation>
+                    </ProductInput>
                     <DVD/>
                     <EditionInput>
                         <IMN/>

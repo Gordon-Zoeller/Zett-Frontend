@@ -5,7 +5,7 @@ import Pages from "../../../components/ui/input/Pages";
 import EditionInput from "../../../components/EditionInput";
 import Publisher from "../../../components/ui/input/Publisher";
 import ISBN from "../../../components/ui/input/ISBN";
-import ProductInformation from "../../../components/ProductInformation";
+import ProductInput from "../../../components/ProductInput";
 import { uploadProduct } from "../../../services/api/upload/uploadProduct";
 import Paperback from "../../../components/ui/render/Paperback";
 import Hardcover from "../../../components/ui/render/Hardcover";
@@ -21,7 +21,7 @@ export default function Book() {
                         <label htmlFor="author">Author</label>
                         <input type="text" name="author" id="author" />
                     </div>
-                    <ProductInformation/>
+                    <ProductInput/>
                     <Hardcover/>
                     <EditionInput>
                         <Pages/>
