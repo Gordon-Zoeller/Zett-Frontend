@@ -1,13 +1,11 @@
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { NavLink, Outlet } from "react-router-dom";
 import { GenreContext } from "../../context/Context";
-import { getGenres } from "../../services/api/genres/getGenres";
+import { useGenres } from "../../hooks/useGenres";
 
 export default function Genres(props) {
-    const {genres, setGenres} = useContext(GenreContext);
-    useEffect(() => {
-        getGenres(setGenres, props);
-    }, [props]);
+    const {genres} = useContext(GenreContext);
+    useGenres(props);
     return (
         <>
             <nav>
