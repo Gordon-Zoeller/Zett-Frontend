@@ -5,7 +5,7 @@ import { useGenres } from "../../hooks/useGenres";
 
 export default function Genres(props) {
     const {genres} = useContext(GenreContext);
-    useGenres(props);
+    const productsGenres = useGenres(props);
     return (
         <>
             <nav>

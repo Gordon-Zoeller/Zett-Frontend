@@ -24,7 +24,7 @@ export default function Products() {
         path = getPath();
     };
     */
-    useProducts(path);
+    const getProducts = useProducts(path);
     return (
         <>
             <div>
