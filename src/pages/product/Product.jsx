@@ -8,10 +8,12 @@ import Year from "../../components/ui/render/Year";
 import IMN from "../../components/ui/render/IMN";
 import { useLocation } from "react-router-dom";
 import BookCard from "../../components/BookCard";
+import { useSessionStorage } from "../../hooks/useSessionStorage";
 
 export default function Product() {
     const {product} = useContext(ProductContext);
     const {state} = useLocation();
+    const storageProduct = useSessionStorage();
     return (
         <>
             <div>
