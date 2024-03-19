@@ -22,14 +22,14 @@ function App() {
   const navigate = useNavigate();
   const {user, setUser} = useContext(UserContext);
   const {formRef} = useContext(ProductContext);
-  const search = async (e) => {
+  const handleSearch = async (e) => {
     e.preventDefault();
     const query = e.target.search.value.replaceAll(" ", "+");
     const category = e.target.category.value;
     e.target.search.value = "";
     navigate(`/${category}/search?q=${query}&c=${category}`);
   };
-  const signout = () => {
+  const handleSignout = () => {
     setUser(null);
     sessionStorage.removeItem("token");
   };
@@ -43,7 +43,7 @@ function App() {
           <ul>
             <li>
               <search>
-                <form onSubmit={search}>
+                <form onSubmit={handleSearch}>
                   <select ref={formRef} name="category" id="category">
                     <option value="all">All</option>
                     <option value="books">Books</option>
@@ -76,7 +76,7 @@ function App() {
                     {
                       user?.role === "admin" && <li><NavLink to="/user/admin">Admin</NavLink></li>
                     }
-                    <li onClick={signout}><NavLink to="/">Sign Out</NavLink></li>
+                    <li onClick={handleSignout}><NavLink to="/">Sign Out</NavLink></li>
                   </ul>
                 </>
             )}
