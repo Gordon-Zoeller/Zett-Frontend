@@ -2,7 +2,7 @@ import { useContext, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { ProductContext } from "../context/Context";
 import { bySearch } from "../services/api/search/bySearch";
-import { byGenre } from "../services/api/genres/byGenre";
+import { byGenre } from "../services/api/products/byGenre";
 
 
 export function useProducts(path) {
