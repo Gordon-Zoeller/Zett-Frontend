@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import ContinueBtn from "../../components/ui/btn/ContinueBtn";
 import { UserContext } from "../../context/Context";
 import SignInInput from "../../components/SignInInput";
-import { signup } from "../../services/api/user/SignUp";
+import { signup } from "../../services/api/user/signUp";
 
 export default function SignUp() {
     const {setUser} = useContext(UserContext);
