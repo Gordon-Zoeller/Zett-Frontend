@@ -17,6 +17,7 @@ import Movie from "./pages/admin/movie/Movie";
 import NotFound from "./pages/notFound/NotFound";
 import Album from './pages/admin/album/Album';
 import Product from './pages/product/Product';
+import Cart from './pages/cart/Cart';
 
 function App() {
   const navigate = useNavigate();
@@ -83,6 +84,9 @@ function App() {
                 </>
             )}
           </ul>
+          <ul>
+            <li><NavLink to="/cart"><FaShoppingCart className="icon"/></NavLink></li>
+          </ul>
         </nav>
       </header>
       <main>
@@ -115,6 +119,7 @@ function App() {
                 <Route path="/user/admin/album" element={<Album/>}/>
               </Route>
             </Route>
+            <Route path="/cart" element={<Cart/>}/>
             <Route path="*" element={<NotFound/>}/>
           </Routes>
         </GenresContainer>
