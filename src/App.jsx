@@ -62,6 +62,8 @@ function App() {
             <li><NavLink to="/books">Books</NavLink></li>
             <li><NavLink to="/movies">Movies</NavLink></li>
             <li><NavLink to="/albums">Albums</NavLink></li>
+          </ul>
+          <ul>
             {
               !user ? (
                 <>
