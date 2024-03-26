@@ -6,11 +6,11 @@ export default function ProductsContainer({children}) {
     const [product, setProduct] = useState({});
     const formRef = useRef();
     useEffect(() => {
-        if(window.location.href.includes("/books/search?q=")) {
+        if(window.location.href.includes("/books/search?q=") || window.location.href.includes("/books/product")) {
             formRef.current.value = "books";
-        } else if(window.location.href.includes("/movies/search?q=")) {
+        } else if(window.location.href.includes("/movies/search?q=") || window.location.href.includes("/movies/product")) {
             formRef.current.value = "movies";
-        } else if(window.location.href.includes("/albums/search?q=")) {
+        } else if(window.location.href.includes("/albums/search?q=") || window.location.href.includes("/albums/product")) {
             formRef.current.value = "albums";
         } else {
             formRef.current.value = "all";
